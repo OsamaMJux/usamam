@@ -1,41 +1,20 @@
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
+import { Link } from "react-router-dom";
 import RevealOnScroll from "./interactive/RevealOnScroll";
 import TiltCard from "./interactive/TiltCard";
+import { caseStudies } from "@/data/caseStudies";
 
-const projects = [
-  {
-    number: "01",
-    category: "Content Strategy",
-    title: "Social Media Grid System",
-    description:
-      "Designed a cohesive Instagram grid strategy that increased engagement by 340% and grew the following from 5K to 50K in 6 months.",
-    image: portfolio1,
-    tags: ["Instagram", "Content Calendar", "Visual Design"],
-  },
-  {
-    number: "02",
-    category: "Ad Campaigns",
-    title: "High-Converting Ad Creatives",
-    description:
-      "Created performance-driven ad campaigns that achieved 4.2x ROAS and reduced CPA by 60% for e-commerce clients.",
-    image: portfolio2,
-    tags: ["Meta Ads", "Creative Strategy", "A/B Testing"],
-  },
-  {
-    number: "03",
-    category: "Viral Content",
-    title: "Entertainment Reels Strategy",
-    description:
-      "Developed a viral content framework that generated 10M+ views and established clients as thought leaders in their niche.",
-    image: portfolio3,
-    tags: ["Reels", "TikTok", "Viral Marketing"],
-  },
-];
+const projects = caseStudies.slice(0, 4).map((cs, index) => ({
+  number: String(index + 1).padStart(2, "0"),
+  category: cs.category,
+  title: cs.title,
+  description: cs.outcomeStatement,
+  image: cs.heroImage,
+  tags: cs.snapshot.tools.slice(0, 3),
+  slug: cs.slug,
+}));
 
 const PortfolioSection = () => {
   return (
@@ -147,17 +126,19 @@ const PortfolioSection = () => {
                       </motion.span>
                     ))}
                   </div>
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button variant="outline" className="group">
-                      View Case Study
-                      <motion.span
-                        className="inline-block"
-                        whileHover={{ x: 3, y: -3 }}
-                      >
-                        <ArrowUpRight size={18} />
-                      </motion.span>
-                    </Button>
-                  </motion.div>
+                  <Link to={`/case-study/${project.slug}`}>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <Button variant="outline" className="group">
+                        View Case Study
+                        <motion.span
+                          className="inline-block"
+                          whileHover={{ x: 3, y: -3 }}
+                        >
+                          <ArrowUpRight size={18} />
+                        </motion.span>
+                      </Button>
+                    </motion.div>
+                  </Link>
                 </div>
               </RevealOnScroll>
             </motion.div>
