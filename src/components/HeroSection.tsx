@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import TypingAnimatedText from "./interactive/TypingAnimatedText";
+import MagneticButton from "./interactive/MagneticButton";
+import FloatingElement from "./interactive/FloatingElement";
+import AnimatedCounter from "./interactive/AnimatedCounter";
+import StaggeredText from "./interactive/StaggeredText";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -9,98 +15,170 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
+      {/* Background Image with Parallax Effect */}
+      <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-      </div>
+      </motion.div>
+
+      {/* Floating Decorative Elements */}
+      <FloatingElement className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-primary/5 blur-3xl" duration={6} distance={20} />
+      <FloatingElement className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" duration={8} distance={25} delay={1} />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-20">
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6 animate-fade-in-up">
-            <div className="h-px w-12 bg-primary" />
+          <motion.div
+            className="flex items-center gap-3 mb-6"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.div
+              className="h-px bg-primary"
+              initial={{ width: 0 }}
+              animate={{ width: 48 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            />
             <span className="text-sm font-medium tracking-wider text-primary uppercase">
               Creative Strategist & Marketing Expert
             </span>
+          </motion.div>
+
+          {/* Main Heading with Staggered Animation */}
+          <div className="mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[0.95]">
+              <StaggeredText text="Usama" className="block" delay={0.3} />
+              <span className="text-gradient">
+                <StaggeredText text="Jamil" delay={0.6} />
+              </span>
+            </h1>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[0.95] mb-8 animate-fade-in-up animation-delay-200">
-            Usama
-            <br />
-            <span className="text-gradient">Jamil</span>
-          </h1>
+          {/* Dynamic Typing Text */}
+          <motion.div
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            I help ambitious professionals master{" "}
+            <TypingAnimatedText
+              words={["AI & Automation", "Content Strategy", "Growth Marketing", "Brand Building", "Smart Execution"]}
+              className="text-primary font-semibold"
+              typingSpeed={80}
+              deletingSpeed={40}
+              pauseDuration={2500}
+            />
+          </motion.div>
 
-          {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed animate-fade-in-up animation-delay-400">
-            Bridging the gap between creative vision and technical execution. 
-            I help ambitious founders and professionals leverage AI, systems, 
-            and smart execution to grow their brands.
-          </p>
+          <motion.p
+            className="text-muted-foreground max-w-xl mb-10 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            Bridging the gap between creative vision and technical execution.
+            No fluff, just frameworks that work.
+          </motion.p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in-up animation-delay-600">
-            <Button variant="hero" size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
-              Work With Me
-            </Button>
-            <Button variant="hero-outline" size="lg" onClick={() => document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" })}>
-              View Portfolio
-            </Button>
-          </div>
+          {/* CTAs with Magnetic Effect */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <MagneticButton strength={0.2}>
+              <Button variant="hero" size="lg" onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}>
+                Work With Me
+              </Button>
+            </MagneticButton>
+            <MagneticButton strength={0.2}>
+              <Button variant="hero-outline" size="lg" onClick={() => document.querySelector("#portfolio")?.scrollIntoView({ behavior: "smooth" })}>
+                View Portfolio
+              </Button>
+            </MagneticButton>
+          </motion.div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-6 animate-fade-in-up animation-delay-600">
-            <a
+          {/* Social Links with Hover Animation */}
+          <motion.div
+            className="flex items-center gap-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+          >
+            <motion.a
               href="https://www.linkedin.com/in/usamajm/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Linkedin size={20} />
               <span className="text-sm">LinkedIn</span>
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="mailto:hello@usamajamil.com"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Mail size={20} />
               <span className="text-sm">Email</span>
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <button
+      <motion.button
         onClick={scrollToAbout}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors animate-float"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.6 }}
       >
         <span className="text-xs tracking-wider uppercase">Scroll</span>
-        <ArrowDown size={20} />
-      </button>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowDown size={20} />
+        </motion.div>
+      </motion.button>
 
-      {/* Stats Bar */}
+      {/* Stats Bar with Animated Counters */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-background/80 backdrop-blur-lg">
         <div className="container mx-auto px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "50+", label: "Clients Served" },
-              { value: "100+", label: "Projects Delivered" },
-              { value: "5+", label: "Years Experience" },
-              { value: "10M+", label: "Content Reach" },
+              { value: 50, suffix: "+", label: "Clients Served" },
+              { value: 100, suffix: "+", label: "Projects Delivered" },
+              { value: 5, suffix: "+", label: "Years Experience" },
+              { value: 10000000, suffix: "+", label: "Content Reach" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
+              <motion.div
+                key={index}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.8 + index * 0.1 }}
+              >
                 <div className="text-2xl md:text-3xl font-serif font-bold text-foreground">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
