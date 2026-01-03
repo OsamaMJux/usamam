@@ -20,7 +20,7 @@ const StaggeredText = ({
     margin: "-50px"
   });
   const words = text.split(" ");
-  return <div ref={ref} className="">
+  return <div ref={ref} className="opacity-100 rounded-sm">
       <Component className="inline">
         {words.map((word, wordIndex) => <span key={wordIndex} className="inline-block whitespace-nowrap">
             {word.split("").map((char, charIndex) => {})}

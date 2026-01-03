@@ -61,7 +61,7 @@ const HeroSection = () => {
 
           {/* Main Heading with Staggered Animation */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold leading-[0.95]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl italic font-bold leading-[0.95] font-sans">
               <StaggeredText text="Usama" className="block" delay={0.3} />
               <span className="text-gradient">
                 <StaggeredText text="Jamil" delay={0.6} />
