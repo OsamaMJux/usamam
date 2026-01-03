@@ -46,14 +46,14 @@ const HeroSection = () => {
               animate={{ width: 48 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             />
-            <span className="text-sm font-medium tracking-wider text-primary uppercase">
+            <span className="text-xs font-medium tracking-widest text-primary uppercase">
               Creative Strategist & Marketing Expert
             </span>
           </motion.div>
 
           {/* Main Heading with Staggered Animation */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[0.95]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic font-bold leading-[0.95]">
               <StaggeredText text="Usama" className="block" delay={0.3} />
               <span className="text-gradient">
                 <StaggeredText text="Jamil" delay={0.6} />
@@ -79,7 +79,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.p
-            className="text-muted-foreground max-w-xl mb-10 leading-relaxed"
+            className="text-muted-foreground max-w-xl mb-10 leading-relaxed font-serif italic text-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -146,7 +146,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.6 }}
       >
-        <span className="text-xs tracking-wider uppercase">Scroll</span>
+        <span className="text-[10px] tracking-widest uppercase font-medium">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -172,10 +172,10 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.8 + index * 0.1 }}
               >
-                <div className="text-2xl md:text-3xl font-serif font-bold text-foreground">
+                <div className="text-2xl md:text-3xl font-serif italic font-bold text-foreground">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">
+                <div className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-medium">
                   {stat.label}
                 </div>
               </motion.div>

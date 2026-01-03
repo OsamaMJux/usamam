@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
                 whileInView={{ width: 48 }}
                 viewport={{ once: true }}
               />
-              <span className="text-sm font-medium tracking-wider text-primary uppercase">
+              <span className="text-xs font-medium tracking-widest text-primary uppercase">
                 Testimonials
               </span>
               <motion.div
@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
                 viewport={{ once: true }}
               />
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold">
+            <h2 className="text-4xl md:text-5xl font-serif italic font-bold">
               What Clients Say
             </h2>
           </div>
@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
                 className="text-center"
               >
                 <Quote className="text-primary/30 mx-auto mb-6" size={60} />
-                <p className="text-2xl md:text-3xl font-serif text-foreground leading-relaxed mb-8">
+                <p className="text-2xl md:text-3xl font-serif italic text-foreground leading-relaxed mb-8">
                   "{testimonials[activeIndex].quote}"
                 </p>
                 <motion.div
@@ -139,7 +139,7 @@ const TestimonialsSection = () => {
                   >
                     <Quote className="text-primary/30 mb-6" size={40} />
                   </motion.div>
-                  <p className="text-foreground leading-relaxed mb-8 text-lg">
+                  <p className="text-foreground leading-relaxed mb-8 text-lg font-serif italic">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-4">
@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
         {/* Trust Indicators */}
         <RevealOnScroll delay={0.3}>
           <div className="mt-20 pt-12 border-t border-border">
-            <p className="text-center text-muted-foreground mb-8">
+            <p className="text-center text-muted-foreground mb-8 font-serif italic">
               Trusted by professionals from
             </p>
             <div className="flex flex-wrap justify-center items-center gap-12">

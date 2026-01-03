@@ -39,7 +39,7 @@ const AboutSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             />
-            <span className="text-sm font-medium tracking-wider text-primary uppercase">
+            <span className="text-xs font-medium tracking-widest text-primary uppercase">
               About Me
             </span>
           </div>
@@ -49,14 +49,14 @@ const AboutSection = () => {
           {/* Left Column */}
           <div>
             <RevealOnScroll>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-8">
+              <h2 className="text-4xl md:text-5xl font-serif italic font-bold leading-tight mb-8">
                 Simplifying Complexity,
                 <br />
                 <span className="text-gradient">Amplifying Growth</span>
               </h2>
             </RevealOnScroll>
 
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed font-serif italic">
               <RevealOnScroll delay={0.1}>
                 <p>
                   I'm a marketing strategist and creative technologist who believes 
@@ -104,7 +104,7 @@ const AboutSection = () => {
                         <h3 className="text-lg font-semibold text-foreground mb-2">
                           {value.title}
                         </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-sm leading-relaxed font-serif italic">
                           {value.description}
                         </p>
                       </div>
