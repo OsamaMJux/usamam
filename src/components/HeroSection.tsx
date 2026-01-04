@@ -13,7 +13,7 @@ const HeroSection = () => {
       behavior: "smooth"
     });
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <motion.div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: `url(${heroBg})`
