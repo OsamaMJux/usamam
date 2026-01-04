@@ -30,7 +30,7 @@ const HeroSection = () => {
 
      
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-20 pb-40">
+      <div className="relative z-10 container mx-auto px-6 pt-20 ">
 
         <div className="max-w-3xl">
           {/* Eyebrow */}
