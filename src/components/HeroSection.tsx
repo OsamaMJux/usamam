@@ -131,6 +131,9 @@ const HeroSection = () => {
         </div>
       </div>
 
+{/* Gradient fade */}
+<div className="pointer-events-none absolute inset-x-0 bottom-32 h-16 bg-gradient-to-t from-black/40 to-transparent" />
+
 
 
       {/* Stats Bar with Animated Counters */}
