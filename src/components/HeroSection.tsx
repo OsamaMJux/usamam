@@ -55,7 +55,7 @@ const HeroSection = () => {
             delay: 0.4
           }} />
             <span className="text-xs font-medium tracking-widest text-primary uppercase">
-              Creative Strategist & Marketing Expert
+              Creative Strategist & Marketing HI
             </span>
           </motion.div>
 
