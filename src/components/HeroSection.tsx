@@ -13,7 +13,7 @@ const HeroSection = () => {
       behavior: "smooth"
     });
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <motion.div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: `url(${heroBg})`
@@ -28,12 +28,10 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </motion.div>
 
-      {/* Floating Decorative Elements */}
-      <FloatingElement className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-primary/5 blur-3xl" duration={6} distance={20} />
-      <FloatingElement className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" duration={8} distance={25} delay={1} />
-
+     
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-20">
+      <div className="relative z-10 container mx-auto px-6 pt-20 pb-40">
+
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <motion.div className="flex items-center gap-3 mb-6" initial={{
@@ -60,14 +58,16 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Main Heading with Staggered Animation */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl italic font-bold leading-[0.95] font-sans">
-              <StaggeredText text="Usama" className="block"  />
-              <span className="text-gradient">
-                <StaggeredText text="Jamil"  />
-              </span>
-            </h1>
-          </div>
+<div className="mb-8">
+  <h1 className="font-sans font-bold leading-[0.95] text-5xl md:text-7xl lg:text-8xl">
+    <StaggeredText
+      text="Usama Malik"
+      className="block"
+      
+    />
+  </h1>
+</div>
+
 
           {/* Dynamic Typing Text */}
           <motion.div className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed" initial={{
@@ -125,62 +125,17 @@ const HeroSection = () => {
             </MagneticButton>
           </motion.div>
 
-          {/* Social Links with Hover Animation */}
-          <motion.div className="flex items-center gap-6" initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6,
-          delay: 1.4
-        }}>
-            <motion.a href="https://www.linkedin.com/in/usamajm/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" whileHover={{
-            scale: 1.05,
-            x: 5
-          }} whileTap={{
-            scale: 0.95
-          }}>
-              <Linkedin size={20} />
-              <span className="text-sm">LinkedIn</span>
-            </motion.a>
-            <motion.a href="mailto:hello@usamajamil.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" whileHover={{
-            scale: 1.05,
-            x: 5
-          }} whileTap={{
-            scale: 0.95
-          }}>
-              <Mail size={20} />
-              <span className="text-sm">Email</span>
-            </motion.a>
-          </motion.div>
+         
+          
+            
+              
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.button onClick={scrollToAbout} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors" initial={{
-      opacity: 0,
-      y: 20
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      duration: 0.6,
-      delay: 1.6
-    }}>
-        <span className="text-[10px] tracking-widest uppercase font-medium">Scroll</span>
-        <motion.div animate={{
-        y: [0, 8, 0]
-      }} transition={{
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}>
-          <ArrowDown size={20} />
-        </motion.div>
-      </motion.button>
+
 
       {/* Stats Bar with Animated Counters */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-background/80 backdrop-blur-lg">
+      <div className="relative z-10 container mx-auto px-6 pt-20 pb-20">
         <div className="container mx-auto px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[{
