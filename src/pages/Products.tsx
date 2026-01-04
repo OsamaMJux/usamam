@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   TrendingUp, Palette, Code, Presentation, Brain, MessageSquare, 
-  Users, Rocket, Megaphone, BarChart3, Bot, Calendar, Grid3X3, 
-  Sparkles, Play, ArrowUpRight, ArrowRight
+  Users, Rocket, Megaphone, BarChart3, Bot, ArrowUpRight, ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -13,6 +12,7 @@ import RevealOnScroll from "@/components/interactive/RevealOnScroll";
 import TiltCard from "@/components/interactive/TiltCard";
 import GlowingBorder from "@/components/interactive/GlowingBorder";
 import MagneticButton from "@/components/interactive/MagneticButton";
+import { digitalProducts } from "@/data/digitalProducts";
 
 // Skills Data
 const technicalSkills = [
@@ -54,42 +54,6 @@ const services = [
     title: "AI & Automation",
     description: "Leverage AI to work smarter, not harder.",
     features: ["AI Workflows", "Marketing Automation", "Tool Integration", "Process Optimization"],
-  },
-];
-
-// Digital Products Data
-const products = [
-  {
-    icon: Calendar,
-    title: "Content Calendar Templates",
-    description: "30+ shareable and relatable content ideas organized by theme, platform, and content type.",
-    price: "$49",
-    popular: false,
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&q=80"
-  },
-  {
-    icon: Grid3X3,
-    title: "Instagram Grid System",
-    description: "Cohesive visual templates that make your Instagram profile look professional.",
-    price: "$79",
-    popular: true,
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80"
-  },
-  {
-    icon: Sparkles,
-    title: "High-Converting Ad Creatives",
-    description: "Proven ad creative templates that have generated millions in revenue.",
-    price: "$99",
-    popular: false,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-  },
-  {
-    icon: Play,
-    title: "Viral Reels Framework",
-    description: "The exact framework used to generate 10M+ views.",
-    price: "$69",
-    popular: false,
-    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&q=80"
   },
 ];
 
@@ -319,57 +283,66 @@ const Products = () => {
 
           {/* Products Grid - Like beyondalpha.co */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
-              <RevealOnScroll key={index} delay={index * 0.1}>
-                <motion.div
-                  className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 ${
-                    product.popular ? "border-primary shadow-glow" : "border-border hover:border-primary/50"
-                  }`}
-                  whileHover={{ y: -8 }}
-                >
-                  {/* Popular Badge */}
-                  {product.popular && (
-                    <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-primary rounded-full text-xs font-semibold text-primary-foreground">
-                      Most Popular
-                    </div>
-                  )}
-
-                  {/* Product Image */}
-                  <div className="relative h-56 overflow-hidden">
-                    <motion.img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                  </div>
-
-                  {/* Product Info */}
-                  <div className="p-6">
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                        <product.icon size={20} />
+            {digitalProducts.map((product, index) => (
+              <RevealOnScroll key={product.id} delay={index * 0.1}>
+                <Link to={`/products/${product.slug}`}>
+                  <motion.div
+                    className={`group relative rounded-2xl overflow-hidden bg-card border transition-all duration-500 ${
+                      product.popular ? "border-primary shadow-glow" : "border-border hover:border-primary/50"
+                    }`}
+                    whileHover={{ y: -8 }}
+                  >
+                    {/* Popular Badge */}
+                    {product.popular && (
+                      <div className="absolute top-4 right-4 z-10 px-3 py-1 bg-primary rounded-full text-xs font-semibold text-primary-foreground">
+                        Most Popular
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold leading-tight">{product.title}</h3>
+                    )}
+
+                    {/* Product Image */}
+                    <div className="relative h-56 overflow-hidden">
+                      <motion.img
+                        src={product.heroImage}
+                        alt={product.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    </div>
+
+                    {/* Product Info */}
+                    <div className="p-6">
+                      <div className="flex items-start gap-3 mb-4">
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                          <product.icon size={20} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold leading-tight">{product.title}</h3>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed font-serif italic">
+                        {product.description}
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl font-serif italic font-bold text-primary">
+                            {product.price}
+                          </span>
+                          {product.originalPrice && (
+                            <span className="text-sm text-muted-foreground line-through">
+                              {product.originalPrice}
+                            </span>
+                          )}
+                        </div>
+                        <Button variant="outline" size="sm" className="group/btn">
+                          Shop Now
+                          <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
+                        </Button>
                       </div>
                     </div>
-
-                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed font-serif italic">
-                      {product.description}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-serif italic font-bold text-primary">
-                        {product.price}
-                      </span>
-                      <Button variant="outline" size="sm" className="group/btn">
-                        Shop Now
-                        <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
-                      </Button>
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </RevealOnScroll>
             ))}
           </div>
