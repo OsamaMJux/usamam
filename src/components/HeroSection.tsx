@@ -139,7 +139,7 @@ const HeroSection = () => {
           }} whileTap={{
             scale: 0.95
           }}>
-              <Linkedin size={20} />
+              <Linkedin size={10} />
               <span className="text-sm">LinkedIn</span>
             </motion.a>
             <motion.a href="mailto:hello@usamajamil.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" whileHover={{
@@ -148,7 +148,7 @@ const HeroSection = () => {
           }} whileTap={{
             scale: 0.95
           }}>
-              <Mail size={20} />
+              <Mail size={10} />
               <span className="text-sm">Email</span>
             </motion.a>
           </motion.div>
