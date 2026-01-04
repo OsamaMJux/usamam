@@ -134,7 +134,7 @@ const HeroSection = () => {
 
 
       {/* Stats Bar with Animated Counters */}
-      <div className="absolute inset-x-0 bottom-0 z-20">
+      <div className="absolute inset-x-0 bottom-24 h-12 bg-gradient-to-t from-black/40 to-transparent">
         <div className="container mx-auto px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[{
