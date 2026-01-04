@@ -172,7 +172,7 @@ const Navigation = () => {
                   size="sm"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  Let's Talk
+                  Customize Me
                 </Button>
               </motion.div>
             </MagneticButton>
