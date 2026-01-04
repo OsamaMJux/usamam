@@ -138,7 +138,7 @@ const HeroSection = () => {
 
 
       {/* Stats Bar with Animated Counters */}
-      <div className="relative z-10 container mx-auto px-6 pt-20 pb-40">
+      <div className="relative z-10 container mx-auto px-6 pt-20 pb-20">
         <div className="container mx-auto px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[{
