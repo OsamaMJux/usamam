@@ -28,10 +28,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
       </motion.div>
 
-      {/* Floating Decorative Elements */}
-      <FloatingElement className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-primary/5 blur-3xl" duration={6} distance={20} />
-      <FloatingElement className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" duration={8} distance={25} delay={1} />
-
+     
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-20 pb-40">
 
