@@ -66,7 +66,7 @@ const HeroSection = () => {
     <StaggeredText
       text="Usama Malik"
       className="block"
-      delay={0.3}
+      
     />
   </h1>
 </div>
