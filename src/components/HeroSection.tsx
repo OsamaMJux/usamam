@@ -55,19 +55,26 @@ const HeroSection = () => {
             delay: 0.4
           }} />
             <span className="text-xs font-medium tracking-widest text-primary uppercase">
-              Creative Strategist & Marketing HELLOW WORLD
+              Creative Strategist & Marketing Expert
             </span>
           </motion.div>
 
-          {/* Main Heading with Staggered Animation */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl italic font-bold leading-[0.95] font-sans">
-              <StaggeredText text="Usama" className="block" delay={0.3} />
-              <span className="text-gradient">
-                <StaggeredText text="Jamil" delay={0.6} />
-              </span>
-            </h1>
-          </div>
+{/* Main Heading with Staggered Animation */}
+<div className="mb-8">
+  <h1 className="font-sans font-bold italic leading-[0.95] text-5xl md:text-7xl lg:text-8xl">
+    <StaggeredText
+      text="Usama"
+      className="block"
+      delay={0.3}
+    />
+
+    <StaggeredText
+      text="Jamil"
+      className="block text-gradient"
+      delay={0.6}
+    />
+  </h1>
+</div>
 
           {/* Dynamic Typing Text */}
           <motion.div className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed" initial={{
