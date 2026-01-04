@@ -131,14 +131,25 @@ const ProductDetail = () => {
             <RevealOnScroll direction="right">
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-transparent rounded-3xl blur-3xl" />
-                <motion.img
-                  src={product.heroImage}
-                  alt={product.title}
-                  className="relative w-full rounded-2xl shadow-2xl border border-border"
+                <motion.div
+                  className="relative w-full aspect-[4/3] rounded-2xl shadow-2xl border border-border overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
-                />
+                >
+                  <img
+                    src={product.heroImage}
+                    alt={product.title}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <product.icon size={80} className="text-primary/30" />
+                  </div>
+                </motion.div>
               </div>
             </RevealOnScroll>
           </div>
