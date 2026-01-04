@@ -33,7 +33,8 @@ const HeroSection = () => {
       <FloatingElement className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" duration={8} distance={25} delay={1} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end items-start h-full container mx-auto px-6 pb-40">
+      <div className="absolute bottom-40 left-6 md:left-16 flex flex-col items-start gap-6 z-10"
+>
 
 
         <div className="max-w-3xl">
