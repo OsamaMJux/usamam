@@ -33,7 +33,8 @@ const HeroSection = () => {
       <FloatingElement className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" duration={8} distance={25} delay={1} />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-20 pb-40">
+      <div className="relative z-10 flex flex-col justify-end items-start h-full container mx-auto px-6 pb-40">
+
 
         <div className="max-w-3xl">
           {/* Eyebrow */}
@@ -131,11 +132,6 @@ const HeroSection = () => {
               
         </div>
       </div>
-
-{/* Gradient fade */}
-<div className="pointer-events-none absolute inset-x-0 bottom-32 h-16 bg-gradient-to-t from-black/40 to-transparent" />
-
-
 
       {/* Stats Bar with Animated Counters */}
       <div className="relative z-10 container mx-auto px-6 pt-20 pb-20">
