@@ -125,12 +125,14 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Social Links with Hover Animation */}
-          <motion.div
-  className="mt-6 flex flex-wrap items-center gap-6 relative z-10"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.6, delay: 1.4 }}
->
+          <motion.div className="flex flex-col sm:flex-row gap-4 mb-16" initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 1.4
+        }}>
             <motion.a href="https://www.linkedin.com/in/usamajm/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors" whileHover={{
             scale: 1.05,
             x: 5
