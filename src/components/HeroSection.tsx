@@ -125,7 +125,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Social Links with Hover Animation */}
-          <motion.div className="flex items-center gap-6" initial={{
+          <motion.div className="flex items-center gap-8" initial={{
           opacity: 0
         }} animate={{
           opacity: 1
@@ -155,28 +155,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.button onClick={scrollToAbout} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors" initial={{
-      opacity: 0,
-      y: 20
-    }} animate={{
-      opacity: 1,
-      y: 0
-    }} transition={{
-      duration: 0.6,
-      delay: 1.6
-    }}>
-        <span className="text-[10px] tracking-widest uppercase font-medium">Scroll</span>
-        <motion.div animate={{
-        y: [0, 8, 0]
-      }} transition={{
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}>
-          <ArrowDown size={20} />
-        </motion.div>
-      </motion.button>
+
 
       {/* Stats Bar with Animated Counters */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-border bg-background/80 backdrop-blur-lg">
