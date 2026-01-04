@@ -60,11 +60,12 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Main Heading */}
-<div className="mb-8">
-  <h1 className="font-sans font-bold italic leading-[0.95] text-5xl md:text-7xl lg:text-8xl">
-    Hi, I'm <span className="text-gradient">Usama Malik</span>
-  </h1>
-</div>
+            <div className="mb-8">
+            <h1 className="font-bold text-6xl md:text-8xl leading-tight">
+  Hi, I'm Usama Malik
+</h1>
+
+            </div>
 
 
           {/* Dynamic Typing Text */}
