@@ -44,7 +44,7 @@ const ProductDetail = () => {
   }
 
   const whatsappMessage = encodeURIComponent(`Hi! I'm interested in the ${product.title}. Can you tell me more?`);
-  const whatsappLink = `https://wa.me/1234567890?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/923214472719?text=${whatsappMessage}`;
 
   return (
     <div className="min-h-screen bg-background">

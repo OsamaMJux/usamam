@@ -5,7 +5,7 @@ const Footer = () => {
   const navItems = ["About", "Portfolio", "Services", "Contact"];
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/usamajm/" },
-    { icon: Mail, href: "mailto:hello@usamajamil.com" },
+    { icon: Mail, href: "mailto:Usamajan20000@gmail.com" },
     { icon: Twitter, href: "#" },
   ];
 
