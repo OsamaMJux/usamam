@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+Usama Jamil Malik — Portfolio
 
-## Project info
+Welcome to my portfolio! This repository showcases my web design, UX/UI, marketing, and digital product projects, highlighting creativity, strategy, and impact.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🚀 About Me
 
-## How can I edit this code?
+Hi, I’m Usama Jamil Malik — a Senior Web & Graphics Designer, Digital Marketing Specialist, and Creative Strategist. I create visually stunning, high-converting digital experiences for brands, entrepreneurs, and creators.
 
-There are several ways of editing your application.
+Core Skills:
 
-**Use Lovable**
+Web Design & Development (React, Next.js)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+UI/UX Design & Prototyping
 
-Changes made via Lovable will be committed automatically to this repo.
+Digital Marketing & Campaign Strategy
 
-**Use your preferred IDE**
+Graphic Design & Motion Graphics
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Social Media Content & Ads
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Digital Products & Templates Creation
 
-Follow these steps:
+📂 Portfolio Highlights
+1. Web & App Projects
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Travigo: Adventure booking app UI/UX design
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Lilly App: Meditation & yoga app — design + case study
 
-# Step 3: Install the necessary dependencies.
-npm i
+NourishHubs: School nutrition & vendor platform
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Anti-Hack Phone OS: Privacy-focused UI design
 
-**Edit a file directly in GitHub**
+2. Digital Products
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Content Calendar Templates — Organized content ideas for creators
 
-**Use GitHub Codespaces**
+Instagram Grid System — Cohesive, scroll-stopping profiles
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+High-Converting Ad Creatives — Templates proven to generate revenue
 
-## What technologies are used for this project?
+Viral Reels Framework — Step-by-step social media video frameworks
 
-This project is built with:
+3. Marketing & Campaign Work
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Campaign strategy & creative execution
 
-## How can I deploy this project?
+Social media content planning and growth
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Analytics-driven marketing solutions
 
-## Can I connect a custom domain to my Lovable project?
+💡 What You’ll Find in This Repo
 
-Yes, you can!
+Complete project showcases with screenshots, mockups, and case studies
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Source files for UI/UX design and graphics
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Links to live projects, digital products, and interactive demos
+
+Notes on strategy, process, and design thinking behind each project
+
+📌 Why This Portfolio Stands Out
+
+Impact-Driven Design: Each project focuses on user experience + measurable results
+
+Multi-Disciplinary Approach: Combines design, marketing, and business strategy
+
+Interactive & Modern UI: React/Next.js-based prototypes & real-world applications
+
+WhatsApp-First Digital Products: Optimized for conversions and user engagement
+
+⚡ Tech Stack & Tools
+
+Design & Prototyping: Figma, Adobe XD, Canva, After Effects
+
+Development: React, Next.js, TailwindCSS, Framer Motion
+
+Marketing & Analytics: Google Analytics, Meta Ads Manager, SEO tools
+
+Content Creation: Photoshop, Illustrator, Premiere Pro
+
+📫 Contact Me
+
+Let’s create something impactful together!
+
+Email: youremail@example.com
+
+LinkedIn: linkedin.com/in/usamajm
+
+WhatsApp: Message Me
+
+🌟 How to Explore This Portfolio
+
+Clone this repo:
+
+git clone https://github.com/yourusername/portfolio.git
+
+
+Open /projects folder for detailed case studies and mockups.
+
+Check /digital-products for ready-to-use templates and assets.
+
+Explore /web-projects for interactive React/Next.js demos.
+
+📈 Fun Fact
+
+I design with conversion in mind — every UI, graphic, or digital product is built to engage users, drive action, and leave a lasting impression.
+
+Made with ❤️ by Usama Jamil Malik
+Let’s connect, collaborate, and create experiences that stand out.
