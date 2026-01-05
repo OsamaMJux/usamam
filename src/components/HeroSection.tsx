@@ -7,6 +7,8 @@ import MagneticButton from "./interactive/MagneticButton";
 import FloatingElement from "./interactive/FloatingElement";
 import AnimatedCounter from "./interactive/AnimatedCounter";
 import StaggeredText from "./interactive/StaggeredText";
+import { AvailabilityIndicator, LinkedInFollowers, CredentialBadges } from "./TrustIndicators";
+import { MiniProofStrip } from "./SocialProofBar";
 const HeroSection = () => {
   const scrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({
@@ -55,6 +57,17 @@ const HeroSection = () => {
             <span className="text-xs font-medium tracking-widest text-primary uppercase">
               Creative Strategist & Marketing Expert
             </span>
+          </motion.div>
+
+          {/* Trust Indicators Row */}
+          <motion.div 
+            className="flex flex-wrap items-center gap-3 mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <AvailabilityIndicator message="Available for January 2026" />
+            <LinkedInFollowers count="12K+" />
           </motion.div>
 
           {/* Main Heading with Staggered Animation */}
@@ -122,10 +135,8 @@ const HeroSection = () => {
             </MagneticButton>
           </motion.div>
 
-         
-          
-            
-              
+          {/* Mini Proof Strip */}
+          <MiniProofStrip />
         </div>
       </div>
 
