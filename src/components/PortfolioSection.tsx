@@ -38,18 +38,23 @@ const PortfolioSection = () => {
               </h2>
             </div>
           </RevealOnScroll>
-          <RevealOnScroll direction="right">
-            <motion.div whileHover={{
-            scale: 1.05
-          }} whileTap={{
-            scale: 0.95
-          }}>
-              <Button variant="outline">
-                View Full Portfolio
-                <ArrowUpRight size={18} />
-              </Button>
-            </motion.div>
-          </RevealOnScroll>
+         <RevealOnScroll direction="right">
+           <motion.div
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <a
+      href="https://www.behance.net/Arcdesignss"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button variant="outline" className="flex items-center gap-2">
+        View Full Portfolio
+        <ArrowUpRight size={18} />
+      </Button>
+    </a>
+  </motion.div>
+</RevealOnScroll>
         </div>
 
         {/* Projects Grid */}
