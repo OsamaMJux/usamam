@@ -137,6 +137,26 @@ const Navigation = () => {
                       )}
                     </AnimatePresence>
                   </>
+                ) : item.href.startsWith("/") ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * index }}
+                    whileHover={{ y: -2 }}
+                  >
+                    <Link
+                      to={item.href}
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                    >
+                      {item.label}
+                      <motion.span
+                        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "100%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </Link>
+                  </motion.div>
                 ) : (
                   <motion.button
                     onClick={() => scrollToSection(item.href)}
@@ -264,6 +284,21 @@ const Navigation = () => {
                           )}
                         </AnimatePresence>
                       </>
+                    ) : item.href.startsWith("/") ? (
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.05 * index }}
+                        whileHover={{ x: 10 }}
+                      >
+                        <Link
+                          to={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
                     ) : (
                       <motion.button
                         onClick={() => scrollToSection(item.href)}
