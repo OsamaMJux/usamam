@@ -18,7 +18,7 @@ const navItems = [
       { label: "Digital Products", href: "/products#digital", description: "Templates & resources" },
     ]
   },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Process", href: "/process"},
   { label: "Testimonials", href: "#testimonials" },
 ];
 
