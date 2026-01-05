@@ -1,166 +1,372 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, CheckCircle2, MessageCircle } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, ArrowRight, Zap, User, Clock, MessageCircle } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 const phases = [
   {
     id: "01",
     title: "Discover & Define",
-    subtitle: "Clarity and Positioning",
-    hook: "Figure out who you are. Say it clearly. Show it boldly.",
-    description: "We dig deep to understand your customers, market, and value. Then craft a confident, distinctive positioning that becomes the foundation for everything that follows.",
-    deliverables: ["Kick-off call", "Discovery", "Positioning workshop", "Brand synthesis"],
-    image: "/strategy-mockup.png" // Replace with your image path
+    subtitle: "Strategic Positioning",
+    hook: "Figure out who you are. Say it clearly.",
+    description:
+      "Focus on digging deep into customer research and market gaps to find your 'unfair advantage.' We uncover what makes you different and translate that into a positioning that resonates.",
+    deliverables: [
+      "Strategic Roadmap",
+      "Competitor Audit",
+      "Brand Core",
+      "Sitemap",
+    ],
   },
   {
     id: "02",
     title: "Ideate & Design",
-    subtitle: "Brand identity that connects",
-    hook: "Look like you belong. Sound like you mean it. Show up like a leader.",
-    description: "Translating strategic insight into a brand that actually sticks. We build a full identity system that's distinct, scalable, and built for market traction.",
-    deliverables: ["Moodboards", "Brand Identity", "Visual System", "Interactive Prototypes"],
-    image: "/design-mockup.png"
+    subtitle: "Identity that Connects",
+    hook: "Look like you belong. Sound like a leader.",
+    description:
+      "Translating strategy into high-fidelity UI and scalable design systems that build instant trust. Every pixel is intentional, every interaction is crafted.",
+    deliverables: [
+      "Moodboards",
+      "Design System",
+      "High-Fidelity UI",
+      "Interactive Prototypes",
+    ],
   },
   {
     id: "03",
-    title: "Build & Launch",
-    subtitle: "Websites built to convert",
-    hook: "Turn interest into action. Build trust fast. Scale without tech debt.",
-    description: "I design and build high-converting websites that close the credibility gap, attract the right people, and support growth from day one.",
-    deliverables: ["UX / Wireframes", "UI Design", "Technical SEO", "Development & QA"],
-    image: "/launch-mockup.png"
-  }
+    title: "Launch & Optimize",
+    subtitle: "Built to Convert",
+    hook: "Turn interest into action. Scale without tech debt.",
+    description:
+      "Moving from pixels to code. High-performance development focused on speed, SEO, and conversion. Built right from day one.",
+    deliverables: [
+      "Next.js/Webflow Dev",
+      "Performance QA",
+      "Technical SEO",
+      "Handoff",
+    ],
+  },
 ];
 
-export default function ProcessPage() {
-  const [activeTab, setActiveTab] = useState("01");
+const benefits = [
+  {
+    icon: Zap,
+    title: "No Guesswork",
+    description:
+      "Every decision is backed by research and strategy. We don't guess—we validate.",
+  },
+  {
+    icon: User,
+    title: "Direct Access",
+    description:
+      "Work directly with me. No account managers, no telephone games. Just clear communication.",
+  },
+  {
+    icon: Clock,
+    title: "Async-First Workflow",
+    description:
+      "Designed for busy professionals. Updates on your schedule, not mine.",
+  },
+];
+
+const steps = [
+  { number: "1", title: "Book a Chat", description: "15-min intro call" },
+  { number: "2", title: "Receive Proposal", description: "Tailored to your needs" },
+  { number: "3", title: "Kick off Project", description: "Let's build something great" },
+];
+
+export default function Process() {
+  const [activePhase, setActivePhase] = useState("01");
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-black font-sans selection:bg-red-500 selection:text-white">
-      {/* HERO SECTION */}
-      <section className="pt-32 pb-20 px-6 text-center bg-black text-white">
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-          className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4"
-        >
-          Rise above the noise
-        </motion.p>
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight mb-6"
-        >
-          Three phases.<br/><span className="text-gray-600 font-medium italic">One powerful shift.</span>
-        </motion.h1>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+        {/* Subtle noise texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+        
+        {/* Gradient accent */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+        
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6"
+          >
+            My Process
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-serif italic font-bold tracking-tight mb-8 leading-[1.1]"
+          >
+            A system for clarity.
+            <br />
+            <span className="text-muted-foreground">A framework for growth.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          >
+            I help ambitious professionals move from messy ideas to market-ready
+            products with a battle-tested, three-step shift.
+          </motion.p>
+        </div>
       </section>
 
-      {/* INTERACTIVE PROCESS SECTION */}
-      <section className="max-w-6xl mx-auto py-24 px-6">
-        <div className="space-y-4">
-          {phases.map((phase) => (
-            <div 
-              key={phase.id}
-              onClick={() => setActiveTab(phase.id)}
-              className={`group relative border rounded-3xl transition-all duration-500 cursor-pointer overflow-hidden ${
-                activeTab === phase.id ? 'bg-white border-gray-200 shadow-2xl scale-[1.01]' : 'bg-transparent border-gray-100 hover:border-gray-300'
-              }`}
-            >
-              {/* HEADER AREA */}
-              <div className="p-8 md:p-12 flex items-center justify-between">
-                <div className="flex items-center gap-8">
-                  <span className={`text-2xl font-bold ${activeTab === phase.id ? 'text-black' : 'text-gray-300'}`}>
-                    {phase.id}
-                  </span>
-                  <div>
-                    <h3 className={`text-2xl md:text-4xl font-bold tracking-tight ${activeTab === phase.id ? 'text-black' : 'text-gray-400'}`}>
-                      {phase.subtitle}
-                    </h3>
-                    <p className={`text-lg mt-1 font-medium ${activeTab === phase.id ? 'text-gray-600' : 'text-gray-400'}`}>
-                      {phase.title}
-                    </p>
-                  </div>
-                </div>
-                <div className={`hidden md:block transition-transform duration-500 ${activeTab === phase.id ? 'rotate-90' : ''}`}>
-                  <ChevronRight size={32} className={activeTab === phase.id ? 'text-black' : 'text-gray-300'} />
-                </div>
-              </div>
+      {/* Interactive Accordion Section */}
+      <section className="py-24 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif italic font-bold mb-4">
+              Three Phases. <span className="text-primary">One Powerful Shift.</span>
+            </h2>
+          </motion.div>
 
-              {/* EXPANDABLE CONTENT */}
-              <AnimatePresence>
-                {activeTab === phase.id && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <div className="px-8 md:px-12 pb-12 grid md:grid-cols-2 gap-12 border-t border-gray-50 pt-12">
-                      <div className="space-y-8">
-                        <h4 className="text-xl font-bold text-black leading-snug">
-                          {phase.hook}
-                        </h4>
-                        <p className="text-gray-600 text-lg leading-relaxed">
-                          {phase.description}
-                        </p>
-                        
-                        <div className="space-y-4">
-                          <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Process + Deliverables</p>
-                          <div className="grid grid-cols-2 gap-3">
-                            {phase.deliverables.map((item) => (
-                              <div key={item} className="flex items-center gap-2 text-sm font-semibold text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100">
-                                <CheckCircle2 size={16} className="text-black" />
-                                {item}
+          <div className="space-y-4">
+            {phases.map((phase, index) => (
+              <motion.div
+                key={phase.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div
+                  onClick={() => setActivePhase(activePhase === phase.id ? "" : phase.id)}
+                  className={`group relative border rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${
+                    activePhase === phase.id
+                      ? "bg-card border-primary/30 shadow-glow"
+                      : "bg-card/50 border-border hover:border-primary/20 hover:bg-card"
+                  }`}
+                >
+                  {/* Header */}
+                  <div className="p-6 md:p-8 flex items-center gap-6 md:gap-10">
+                    {/* Phase Number */}
+                    <span
+                      className={`text-5xl md:text-7xl font-serif italic font-bold transition-colors duration-300 ${
+                        activePhase === phase.id
+                          ? "text-primary"
+                          : "text-muted-foreground/30 group-hover:text-muted-foreground/50"
+                      }`}
+                    >
+                      {phase.id}
+                    </span>
+
+                    <div className="flex-1">
+                      <h3
+                        className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+                          activePhase === phase.id ? "text-foreground" : "text-muted-foreground"
+                        }`}
+                      >
+                        {phase.title}
+                      </h3>
+                      <p
+                        className={`text-sm md:text-base mt-1 transition-colors duration-300 ${
+                          activePhase === phase.id ? "text-primary" : "text-muted-foreground/70"
+                        }`}
+                      >
+                        {phase.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Arrow indicator */}
+                    <motion.div
+                      animate={{ rotate: activePhase === phase.id ? 90 : 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="hidden md:block"
+                    >
+                      <ArrowRight
+                        size={28}
+                        className={`transition-colors duration-300 ${
+                          activePhase === phase.id ? "text-primary" : "text-muted-foreground/40"
+                        }`}
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* Expandable Content */}
+                  <AnimatePresence>
+                    {activePhase === phase.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 200,
+                          damping: 30,
+                          opacity: { duration: 0.2 },
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 md:px-8 pb-8 pt-4 border-t border-border/50">
+                          <div className="grid md:grid-cols-2 gap-8">
+                            <div className="space-y-6">
+                              <p className="text-lg md:text-xl font-serif italic text-foreground leading-snug">
+                                "{phase.hook}"
+                              </p>
+                              <p className="text-muted-foreground leading-relaxed">
+                                {phase.description}
+                              </p>
+                            </div>
+
+                            <div className="space-y-4">
+                              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                                Deliverables
+                              </p>
+                              <div className="grid grid-cols-2 gap-3">
+                                {phase.deliverables.map((item) => (
+                                  <motion.div
+                                    key={item}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                    className="flex items-center gap-2 text-sm font-medium text-foreground bg-secondary/50 p-3 rounded-lg border border-border"
+                                  >
+                                    <CheckCircle2 size={16} className="text-primary flex-shrink-0" />
+                                    <span>{item}</span>
+                                  </motion.div>
+                                ))}
                               </div>
-                            ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-
-                      {/* VISUAL MOCKUP AREA */}
-                      <div className="bg-gray-100 rounded-2xl aspect-video md:aspect-square overflow-hidden border border-gray-200 shadow-inner">
-                        <div className="w-full h-full flex items-center justify-center text-gray-400 font-medium italic">
-                          {/* Insert your actual project screenshots here */}
-                          [Visual Showcase: {phase.subtitle}]
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FINAL CTA (Built to Convert) */}
-      <section className="bg-white py-24 px-6 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Need clarity first? Start here.</h2>
-          <p className="text-xl text-gray-600">Get instant clarity on your brand or website. No fluff, no commitment.</p>
-          
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
-            <div className="p-8 border-2 border-black rounded-3xl text-left hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <div className="flex justify-between mb-4">
-                <span className="font-bold uppercase tracking-tighter">Brand Strategy Workshop</span>
-                <span className="bg-black text-white px-3 py-1 rounded-full text-xs font-bold group-hover:bg-white group-hover:text-black">FREE</span>
-              </div>
-              <p className="text-sm opacity-80">Free 30-min session to help clarify your positioning, message, and audience.</p>
-            </div>
-            
-            <div className="p-8 border-2 border-black rounded-3xl text-left hover:bg-black hover:text-white transition-colors group cursor-pointer">
-              <div className="flex justify-between mb-4">
-                <span className="font-bold uppercase tracking-tighter">Website Audit</span>
-                <span className="bg-black text-white px-3 py-1 rounded-full text-xs font-bold group-hover:bg-white group-hover:text-black">FREE</span>
-              </div>
-              <p className="text-sm opacity-80">A tactical plan for what your site actually needs to convert. 30-min session.</p>
-            </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
           </div>
-          
-          <button className="mt-12 bg-black text-white px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 mx-auto hover:scale-105 transition-transform">
-            <MessageCircle size={20} />
-            Book an intro call
-          </button>
         </div>
       </section>
+
+      {/* Why a System? Bento Grid */}
+      <section className="py-24 px-6 bg-secondary/30">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif italic font-bold mb-4">
+              Why a System?
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Structure creates freedom. A proven framework means less stress,
+              better results, and a clear path forward.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-glow"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{benefit.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Next Step CTA Section */}
+      <section className="py-24 px-6">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center space-y-8"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif italic font-bold tracking-tight">
+              Time to look like you <span className="text-primary">mean business.</span>
+            </h2>
+
+            {/* Steps */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 py-12">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className="flex items-center gap-4"
+                >
+                  <span className="text-4xl md:text-5xl font-serif italic font-bold text-primary">
+                    {step.number}
+                  </span>
+                  <div className="text-left">
+                    <p className="font-bold text-foreground">{step.title}</p>
+                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                  </div>
+                  {index < steps.length - 1 && (
+                    <ArrowRight className="hidden md:block w-6 h-6 text-muted-foreground/30 ml-6" />
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Button
+                variant="hero"
+                size="lg"
+                className="group text-lg px-8 py-6"
+                onClick={() => window.open("https://cal.com/your-link", "_blank")}
+              >
+                <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Book an intro call
+                <span className="ml-2 text-sm opacity-70">— Friendly chat, no pressure</span>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
