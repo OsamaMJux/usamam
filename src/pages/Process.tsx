@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowRight, Zap, User, Clock, MessageCircle } from "lucide-react";
+import { CheckCircle2, ArrowRight, Zap, User, Clock, MessageCircle, Shield, Star } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { LimitedSpots, ResponseTimeGuarantee, SatisfactionGuarantee, LinkedInFollowers } from "@/components/TrustIndicators";
+import { SocialProofBar } from "@/components/SocialProofBar";
 
 const phases = [
   {
@@ -122,13 +124,34 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8"
           >
             I help ambitious professionals move from messy ideas to market-ready
             products with a battle-tested, three-step shift.
           </motion.p>
+
+          {/* Trust Indicators */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-4"
+          >
+            <LinkedInFollowers count="12K+" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/60 border border-border/50">
+              <Star size={14} className="text-primary fill-primary" />
+              <span className="text-xs font-medium text-foreground">100+ Projects Delivered</span>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/60 border border-border/50">
+              <Shield size={14} className="text-primary" />
+              <span className="text-xs font-medium text-foreground">5+ Years Experience</span>
+            </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Social Proof Bar */}
+      <SocialProofBar variant="brands" />
 
       {/* Interactive Accordion Section */}
       <section className="py-24 px-6">
@@ -344,12 +367,25 @@ export default function Process() {
               ))}
             </div>
 
+            {/* Urgency Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-4"
+            >
+              <LimitedSpots spots={2} month="January" />
+              <ResponseTimeGuarantee hours={24} />
+            </motion.div>
+
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              className="space-y-6"
             >
               <Button
                 variant="hero"
@@ -361,6 +397,17 @@ export default function Process() {
                 Book an intro call
                 <span className="ml-2 text-sm opacity-70">— Friendly chat, no pressure</span>
               </Button>
+            </motion.div>
+
+            {/* Satisfaction Guarantee */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="max-w-md mx-auto"
+            >
+              <SatisfactionGuarantee />
             </motion.div>
           </motion.div>
         </div>

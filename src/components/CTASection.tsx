@@ -5,6 +5,7 @@ import RevealOnScroll from "./interactive/RevealOnScroll";
 import MagneticButton from "./interactive/MagneticButton";
 import TiltCard from "./interactive/TiltCard";
 import FloatingElement from "./interactive/FloatingElement";
+import { LimitedSpots, ResponseTimeGuarantee, RecentActivity, SatisfactionGuarantee } from "./TrustIndicators";
 
 const CTASection = () => {
   return (
@@ -45,11 +46,19 @@ const CTASection = () => {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.2}>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
               Whether you need a strategic partner, a creative collaborator, or
               just want to pick my brain—I'm here to help ambitious professionals
               achieve their goals.
             </p>
+          </RevealOnScroll>
+
+          {/* Urgency & Trust Triggers */}
+          <RevealOnScroll delay={0.25}>
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
+              <LimitedSpots spots={2} month="January" />
+              <ResponseTimeGuarantee hours={24} />
+            </div>
           </RevealOnScroll>
 
           {/* CTAs */}
@@ -134,6 +143,20 @@ const CTASection = () => {
                   </motion.a>
                 </TiltCard>
               ))}
+            </div>
+          </RevealOnScroll>
+
+          {/* Social Proof - Recent Activity */}
+          <RevealOnScroll delay={0.5}>
+            <div className="mt-12 max-w-md mx-auto">
+              <RecentActivity />
+            </div>
+          </RevealOnScroll>
+
+          {/* Satisfaction Guarantee */}
+          <RevealOnScroll delay={0.6}>
+            <div className="mt-8 max-w-md mx-auto">
+              <SatisfactionGuarantee />
             </div>
           </RevealOnScroll>
         </div>
