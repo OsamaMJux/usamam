@@ -57,7 +57,7 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
               <MagneticButton strength={0.2}>
                 <Button variant="hero" size="lg" className="group" asChild>
-                  <a href="mailto:Usamajan20000@gmail.com">
+                  <a  href="https://wa.me/923214472719">
                     <Mail size={20} />
                     Get in Touch
                     <motion.span
