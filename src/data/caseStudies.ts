@@ -104,7 +104,7 @@ export const caseStudies: CaseStudy[] = [
     client: "NourishHubs",
     category: "Health & Wellness",
     outcomeStatement: "Increased user engagement by 180% through intuitive meal planning experience",
-    heroImage: "https://mir-s3-cdn-cf.behance.net/projects/404/4b248e215502141.Y3JvcCwyNjA2LDIwMzksMjI1LDA.png",
+    heroImage: "/portfolio-nourishubs.png",
     heroMetrics: [
       { value: "180%", label: "Engagement Increase" },
       { value: "4.8", label: "App Store Rating" },
@@ -285,7 +285,7 @@ export const caseStudies: CaseStudy[] = [
     nextCaseStudy: {
       slug: "ascendables",
       title: "Ascendables Crowdfunding",
-      image: "https://mir-s3-cdn-cf.behance.net/projects/404/1565b1173888175.Y3JvcCw1MTY1LDQwMzksMCww.png",
+      image: "/portfolio-ascendables.png",
     },
   },
   {
@@ -295,7 +295,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Ascendables",
     category: "FinTech / Crowdfunding",
     outcomeStatement: "Designed a trust-building crowdfunding platform that increased backer conversion by 65%",
-    heroImage: "https://mir-s3-cdn-cf.behance.net/projects/404/1565b1173888175.Y3JvcCw1MTY1LDQwMzksMCww.png",
+    heroImage: "/portfolio-ascendables.png",
     heroMetrics: [
       { value: "65%", label: "Conversion Increase" },
       { value: "$2.1M", label: "Funds Raised" },
@@ -476,7 +476,7 @@ export const caseStudies: CaseStudy[] = [
     nextCaseStudy: {
       slug: "travego",
       title: "Travego Tourism App",
-      image: "https://mir-s3-cdn-cf.behance.net/projects/404/68ef08149358305.Y3JvcCw1MDAwLDM5MTAsMCw3NA.png",
+      image: "/portfolio-travego.png",
     },
   },
   {
@@ -486,7 +486,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Travego",
     category: "Travel & Tourism",
     outcomeStatement: "Redesigned travel booking experience reducing booking time by 60%",
-    heroImage: "https://mir-s3-cdn-cf.behance.net/projects/404/68ef08149358305.Y3JvcCw1MDAwLDM5MTAsMCw3NA.png",
+    heroImage: "/portfolio-travego.png",
     heroMetrics: [
       { value: "60%", label: "Faster Booking" },
       { value: "4.7", label: "App Rating" },
@@ -667,7 +667,7 @@ export const caseStudies: CaseStudy[] = [
     nextCaseStudy: {
       slug: "lily-meditation",
       title: "Lily Meditation App",
-      image: "https://mir-s3-cdn-cf.behance.net/projects/404/d2f820148064435.Y3JvcCwxNjYyLDEzMDAsMjMwLDA.png",
+      image: "/portfolio-lily.png",
     },
   },
   {
@@ -677,7 +677,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Lily Wellness",
     category: "Health & Wellness",
     outcomeStatement: "Created a calming meditation experience that improved user retention by 85%",
-    heroImage: "https://mir-s3-cdn-cf.behance.net/projects/404/d2f820148064435.Y3JvcCwxNjYyLDEzMDAsMjMwLDA.png",
+    heroImage: "/portfolio-lily.png",
     heroMetrics: [
       { value: "85%", label: "Retention Increase" },
       { value: "4.9", label: "App Store Rating" },
