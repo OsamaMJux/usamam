@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Mail } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import RevealOnScroll from "@/components/interactive/RevealOnScroll";
@@ -83,15 +83,11 @@ const CaseStudyCTA = ({ nextCaseStudy }: CaseStudyCTAProps) => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <MagneticButton>
-                  <Button size="lg" variant="hero" className="min-w-[180px]">
-                    <Calendar size={18} />
-                    Book a Call
-                  </Button>
-                </MagneticButton>
-                <MagneticButton>
-                  <Button size="lg" variant="outline" className="min-w-[180px]">
-                    <Mail size={18} />
-                    Send Email
+                  <Button size="lg" variant="hero" className="min-w-[180px]" asChild>
+                    <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle size={18} />
+                      Message on WhatsApp
+                    </a>
                   </Button>
                 </MagneticButton>
               </div>
