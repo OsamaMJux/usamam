@@ -391,10 +391,10 @@ export default function Process() {
                 variant="hero"
                 size="lg"
                 className="group text-lg px-8 py-6"
-                onClick={() => window.open("https://cal.com/your-link", "_blank")}
+                onClick={() => window.open("https://wa.me/923214472719", "_blank")}
               >
                 <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Book an intro call
+                Message on WhatsApp
                 <span className="ml-2 text-sm opacity-70">— Friendly chat, no pressure</span>
               </Button>
             </motion.div>
