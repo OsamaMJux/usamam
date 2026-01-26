@@ -104,12 +104,8 @@ const ProductDetail = () => {
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Button variant="hero" size="lg" className="gap-2">
-                    <ShoppingCart size={20} />
-                    Add to Cart
-                  </Button>
                   <Button 
-                    variant="hero-outline" 
+                    variant="hero" 
                     size="lg" 
                     className="gap-2"
                     onClick={() => window.open(whatsappLink, "_blank")}
@@ -196,12 +192,8 @@ const ProductDetail = () => {
 
             {/* Repeat CTA */}
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button variant="hero" size="lg" className="gap-2">
-                <ShoppingCart size={20} />
-                Add to Cart
-              </Button>
               <Button 
-                variant="hero-outline" 
+                variant="hero" 
                 size="lg" 
                 className="gap-2"
                 onClick={() => window.open(whatsappLink, "_blank")}
@@ -270,20 +262,13 @@ const ProductDetail = () => {
                       <Button 
                         variant={bundle.popular ? "hero" : "outline"} 
                         className="w-full gap-2"
-                      >
-                        <ShoppingCart size={16} />
-                        Add to Cart
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        className="w-full gap-2 text-muted-foreground hover:text-foreground"
                         onClick={(e) => {
                           e.stopPropagation();
                           window.open(whatsappLink, "_blank");
                         }}
                       >
                         <MessageCircle size={16} />
-                        WhatsApp
+                        Message on WhatsApp
                       </Button>
                     </div>
                   </motion.div>
@@ -539,8 +524,13 @@ const ProductDetail = () => {
             </Accordion>
 
             <div className="text-center mt-12">
-              <Button variant="hero" size="lg" className="gap-2">
-                <ShoppingCart size={20} />
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="gap-2"
+                onClick={() => window.open(whatsappLink, "_blank")}
+              >
+                <MessageCircle size={20} />
                 Get Started Now
               </Button>
             </div>
@@ -561,12 +551,8 @@ const ProductDetail = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <Button variant="hero" size="lg" className="gap-2">
-                  <ShoppingCart size={20} />
-                  Add to Cart – {product.price}
-                </Button>
                 <Button 
-                  variant="hero-outline" 
+                  variant="hero" 
                   size="lg" 
                   className="gap-2"
                   onClick={() => window.open(whatsappLink, "_blank")}
@@ -622,17 +608,13 @@ const ProductDetail = () => {
                   <span className="text-2xl font-serif italic font-bold text-primary">
                     {product.price}
                   </span>
-                  <Button variant="hero" className="gap-2">
-                    <ShoppingCart size={18} />
-                    Add to Cart
-                  </Button>
                   <Button 
-                    variant="ghost" 
-                    size="icon"
-                    className="hidden sm:flex"
+                    variant="hero" 
+                    className="gap-2"
                     onClick={() => window.open(whatsappLink, "_blank")}
                   >
-                    <MessageCircle size={20} />
+                    <MessageCircle size={18} />
+                    Message on WhatsApp
                   </Button>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Linkedin, Calendar } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import RevealOnScroll from "./interactive/RevealOnScroll";
 import MagneticButton from "./interactive/MagneticButton";
@@ -66,9 +66,9 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
               <MagneticButton strength={0.2}>
                 <Button variant="hero" size="lg" className="group" asChild>
-                  <a  href="https://wa.me/923214472719">
-                    <Mail size={20} />
-                    Get in Touch
+                  <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle size={20} />
+                    Message on WhatsApp
                     <motion.span
                       className="inline-block"
                       animate={{ x: [0, 5, 0] }}
@@ -76,18 +76,6 @@ const CTASection = () => {
                     >
                       <ArrowRight size={18} />
                     </motion.span>
-                  </a>
-                </Button>
-              </MagneticButton>
-              <MagneticButton strength={0.2}>
-                <Button variant="hero-outline" size="lg" asChild>
-                  <a
-                    href="https://www.linkedin.com/in/usamajm/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin size={20} />
-                    Connect on LinkedIn
                   </a>
                 </Button>
               </MagneticButton>
@@ -101,14 +89,14 @@ const CTASection = () => {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "Usamajan20000@gmail.com",
-                  href: "mailto:Usamajan20000@gmail.com",
+                  value: "Usamamalikk@hotmail.com",
+                  href: "mailto:Usamamalikk@hotmail.com",
                 },
                 {
-                  icon: Linkedin,
-                  title: "LinkedIn",
-                  value: "@usamajm",
-                  href: "https://www.linkedin.com/in/usamajm/",
+                  icon: MessageCircle,
+                  title: "WhatsApp",
+                  value: "Message me",
+                  href: "https://wa.me/923214472719",
                 },
                 {
                   icon: Calendar,
