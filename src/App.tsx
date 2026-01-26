@@ -1,6 +1,5 @@
 import WhatsAppSticky from "./components/WhatsAppSticky";
 import Process from "./pages/Process";
-import Contact from "./pages/Contact";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/case-study/:slug" element={<CaseStudy />} />
           <Route path="/process" element={<Process />} />
-          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
