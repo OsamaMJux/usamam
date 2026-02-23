@@ -76,46 +76,49 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
         {hasImages ? (
           <div className="grid grid-cols-4 grid-rows-2 gap-3 h-[500px] md:h-[600px]">
             {/* Large left image */}
-            <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden group">
+            <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
               <img
                 src={project.images[0]}
                 alt={`${project.title} - Main`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 loading="lazy"
+                draggable={false}
               />
             </div>
-            {/* Top right images */}
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group">
+            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
               <img
                 src={project.images[1]}
                 alt={`${project.title} - 2`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 loading="lazy"
+                draggable={false}
               />
             </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group">
+            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
               <img
                 src={project.images[2]}
                 alt={`${project.title} - 3`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 loading="lazy"
+                draggable={false}
               />
             </div>
-            {/* Bottom right images */}
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group">
+            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
               <img
                 src={project.images[3]}
                 alt={`${project.title} - 4`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 loading="lazy"
+                draggable={false}
               />
             </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group">
+            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
               <img
                 src={project.images[4]}
                 alt={`${project.title} - 5`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                 loading="lazy"
+                draggable={false}
               />
             </div>
           </div>
