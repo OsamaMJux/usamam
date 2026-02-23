@@ -27,14 +27,26 @@ const projects: ProjectShowcase[] = [
     client: "Aurum Jewels",
     category: "Luxury / Brand Identity",
     description: "Elegant product photography direction, social media templates, and campaign visuals for a premium jewelry brand targeting high-end consumers.",
-    images: [],
+    images: [
+      "/projects/jewelry-1.jpg",
+      "/projects/jewelry-2.jpg",
+      "/projects/jewelry-3.jpg",
+      "/projects/jewelry-4.jpg",
+      "/projects/jewelry-5.jpg",
+    ],
   },
   {
-    title: "BodySculpt — Shapewear Line",
-    client: "BodySculpt Co.",
+    title: "Radiance — Shapewear Line",
+    client: "Radiance Co.",
     category: "Fashion / Product Marketing",
-    description: "Complete visual identity for a shapewear brand — size guides, product cards, care instructions, and lifestyle imagery for social selling.",
-    images: [],
+    description: "Complete visual identity for a shapewear brand — product feature callouts, compression tech graphics, lifestyle imagery, and conversion-focused ad creatives.",
+    images: [
+      "/projects/shapewear-1.jpg",
+      "/projects/shapewear-2.png",
+      "/projects/shapewear-3.jpg",
+      "/projects/shapewear-4.jpg",
+      "/projects/shapewear-1.jpg",
+    ],
   },
 ];
 
