@@ -4,20 +4,45 @@ import { useState, useEffect } from "react";
 import RevealOnScroll from "./interactive/RevealOnScroll";
 import TiltCard from "./interactive/TiltCard";
 const testimonials = [{
-  quote: "Usama transformed our entire content strategy. What used to take us weeks now takes days, and the results speak for themselves—300% increase in engagement.",
-  name: "Sarah Ahmed",
-  title: "Marketing Director, Tech Startup",
-  avatar: "SA"
+  quote: "His expertise in creative design, coupled with AI-driven strategies, brought a unique and professional touch to my project. He elevated my brand's visual presence, resulting in a more engaging experience for my audience.",
+  name: "Numan Shafiq",
+  title: "SEO Specialist & Digital Marketer",
+  avatar: "NS"
 }, {
-  quote: "The AI automation workflows he built for our team have saved us 20+ hours per week. His understanding of both marketing and technology is rare and invaluable.",
-  name: "Ahmed Khan",
-  title: "Founder, E-commerce Brand",
-  avatar: "AK"
+  quote: "His approach to UI/UX was nothing short of exceptional. What sets Usama apart is his rare ability to balance aesthetic creativity with user-focused functionality.",
+  name: "Waqar Umer",
+  title: "Full Stack Web Developer",
+  avatar: "WU"
 }, {
-  quote: "Working with Usama is like having a strategic partner who actually gets it. No fluff, just frameworks that work and results that matter.",
-  name: "Fatima Rizvi",
-  title: "CEO, Digital Agency",
-  avatar: "FR"
+  quote: "An exceptional UX/UI and web designer with a great eye for detail and a deep understanding of user needs. His designs are visually stunning yet highly functional and intuitive.",
+  name: "Darius Lim Shi Siang",
+  title: "IT Engineer, Planetcast International",
+  avatar: "DL"
+}, {
+  quote: "He consistently demonstrates an unwavering commitment to accomplishing tasks with remarkable efficiency, exemplary communication skills, and an acute attention to detail.",
+  name: "Geoffrey Taylor",
+  title: "Independent Actor & Client",
+  avatar: "GT"
+}, {
+  quote: "A hard worker with great skills. He works quickly and shows real dedication to every project he takes on.",
+  name: "Chompoonut Porcar",
+  title: "Business Development, MBA",
+  avatar: "CP"
+}, {
+  quote: "Usama's design thinking goes beyond aesthetics—he understands how to translate business goals into intuitive digital experiences that actually convert.",
+  name: "Ali Nawaz",
+  title: "Founder/CEO, Color Game Studio",
+  avatar: "AN"
+}, {
+  quote: "Working with Usama felt like having a creative partner who truly understood our vision. His turnaround time and quality of work exceeded every expectation.",
+  name: "Raza Hussain",
+  title: "Co-Founder, Digital Commerce Agency",
+  avatar: "RH"
+}, {
+  quote: "Usama brought clarity to our chaotic branding. His strategic approach to design helped us stand out in a crowded market with a cohesive, professional identity.",
+  name: "Mariam Siddiqui",
+  title: "Marketing Lead, SaaS Startup",
+  avatar: "MS"
 }];
 const companies = ["LinkedIn", "Meta", "Google", "Shopify", "HubSpot"];
 const TestimonialsSection = () => {
