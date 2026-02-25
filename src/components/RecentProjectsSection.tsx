@@ -55,7 +55,7 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
 
   return (
     <RevealOnScroll delay={index * 0.15}>
-      <div className="mb-24 last:mb-0">
+      <div className="mb-32 last:mb-0">
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
