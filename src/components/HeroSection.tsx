@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
+
 import TypingAnimatedText from "./interactive/TypingAnimatedText";
 import MagneticButton from "./interactive/MagneticButton";
 import FloatingElement from "./interactive/FloatingElement";
@@ -15,24 +15,27 @@ const HeroSection = () => {
       behavior: "smooth"
     });
   };
-  return <section className="relative z-10 container mx-auto px-6 pt-20 pb-20">
-      {/* Background Image with Parallax Effect */}
-      <motion.div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: `url(${heroBg})`
-    }} initial={{
-      scale: 1.1
-    }} animate={{
-      scale: 1
-    }} transition={{
-      duration: 1.5,
-      ease: "easeOut"
-    }}>
+  return <section className="relative z-10 min-h-screen">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </motion.video>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-      </motion.div>
+      </div>
 
      
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-20 ">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-16 sm:pt-20">
 
         <div className="max-w-3xl">
           {/* Eyebrow */}
@@ -72,7 +75,7 @@ const HeroSection = () => {
 
           {/* Main Heading with Staggered Animation */}
 <div className="mb-8">
-  <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl leading-tight">
+  <h1 className="font-sans font-bold text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-tight">
   <StaggeredText text="Hi, I'm" delay={0.2} className="block" />
   <StaggeredText text="Usama Malik" delay={0.8} className="block text-gradient" />
 </h1>
@@ -80,7 +83,7 @@ const HeroSection = () => {
 
 
           {/* Dynamic Typing Text */}
-          <motion.div className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed" initial={{
+          <motion.div className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mb-4 leading-relaxed" initial={{
           opacity: 0,
           y: 20
         }} animate={{
@@ -143,8 +146,8 @@ const HeroSection = () => {
 
 
       {/* Stats Bar with Animated Counters */}
-      <div className="relative z-10 container mx-auto px-6 pt-20 pb-20">
-        <div className="container mx-auto px-6 py-6">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-12 sm:pb-20">
+        <div className="container mx-auto px-4 sm:px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[{
             value: 50,
