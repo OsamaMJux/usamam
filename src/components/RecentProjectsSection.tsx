@@ -56,7 +56,14 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
   return (
     <RevealOnScroll delay={index * 0.15}>
       <div className="mb-32 last:mb-0">
-        {/* Header */}
+        {/* Decorative divider (skip for first project) */}
+        {index > 0 && (
+          <div className="flex items-center gap-4 mb-16">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <span className="text-muted-foreground/30 text-xs font-mono tracking-widest">✦</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          </div>
+        )}
         <div className="flex items-start justify-between mb-8">
           <div>
             <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase mb-2 block">
