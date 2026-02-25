@@ -26,7 +26,7 @@ const OtherWorkSection = () => {
           </div>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {works.map((work, i) => (
             <RevealOnScroll key={work.src} delay={i * 0.08}>
               <div
