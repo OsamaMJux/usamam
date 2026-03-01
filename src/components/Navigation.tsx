@@ -18,6 +18,7 @@ const navItems = [
       { label: "Digital Products", href: "/products#digital", description: "Templates & resources" },
     ]
   },
+  { label: "Blog", href: "/blog" },
   { label: "Process", href: "/process"},
   { label: "Planner", href: "https://flowfame.vercel.app/", isExternal: true },
 ];
