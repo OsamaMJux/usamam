@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
             }} />
             </div>
             <h2 className="text-4xl md:text-5xl font-serif italic font-light">
-              What Clients Say
+              What Our Clients Say
             </h2>
           </div>
         </RevealOnScroll>

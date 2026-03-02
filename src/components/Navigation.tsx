@@ -6,20 +6,20 @@ import { Link, useLocation } from "react-router-dom";
 import MagneticButton from "./interactive/MagneticButton";
 
 const navItems = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { 
     label: "Products", 
     href: "/products",
     isDropdown: true,
     dropdownItems: [
       { label: "All Products", href: "/products", description: "Browse all offerings" },
-      { label: "Skills & Expertise", href: "/products#skills", description: "What I bring to the table" },
-      { label: "Services", href: "/products#services", description: "How I can help you" },
+      { label: "Skills & Expertise", href: "/products#skills", description: "What we bring to the table" },
+      { label: "Services", href: "/products#services", description: "How we can help you" },
       { label: "Digital Products", href: "/products#digital", description: "Templates & resources" },
     ]
   },
   { label: "Blog", href: "/blog" },
-  { label: "Process", href: "/process"},
+  { label: "Process", href: "/process" },
   { label: "Planner", href: "https://flowfame.vercel.app/", isExternal: true },
 ];
 
@@ -28,7 +28,6 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,24 +37,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
-      if (!isHomePage) {
-        window.location.href = "/" + href;
-        return;
-      }
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-    setActiveDropdown(null);
-  };
-
   const handleNavClick = (item: typeof navItems[0]) => {
     if (item.isDropdown) {
       setActiveDropdown(activeDropdown === item.label ? null : item.label);
     } else {
-      scrollToSection(item.href);
+      setIsMobileMenuOpen(false);
+      setActiveDropdown(null);
     }
   };
 
@@ -74,11 +61,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              to="/"
-              className="text-2xl font-serif italic font-bold text-foreground hover:text-primary transition-colors"
-            >
-              Usama<span className="text-primary">.</span>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/logo-full.png"
+                alt="theCreativeGuy"
+                className="h-10 sm:h-12 w-auto"
+              />
             </Link>
           </motion.div>
 
@@ -107,7 +95,6 @@ const Navigation = () => {
                       />
                     </motion.button>
 
-                    {/* Dropdown Menu */}
                     <AnimatePresence>
                       {activeDropdown === item.label && (
                         <motion.div
@@ -160,7 +147,7 @@ const Navigation = () => {
                       />
                     </a>
                   </motion.div>
-                ) : item.href.startsWith("/") ? (
+                ) : (
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -180,23 +167,6 @@ const Navigation = () => {
                       />
                     </Link>
                   </motion.div>
-                ) : (
-                  <motion.button
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
-                    whileHover={{ y: -2 }}
-                  >
-                    {item.label}
-                    <motion.span
-                      className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.button>
                 )}
               </div>
             ))}
@@ -213,9 +183,11 @@ const Navigation = () => {
                 <Button
                   variant="hero"
                   size="sm"
-                  onClick={() => scrollToSection("#contact")}
+                  asChild
                 >
-                  Customize Me
+                  <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
+                    Start a Project
+                  </a>
                 </Button>
               </motion.div>
             </MagneticButton>
@@ -307,21 +279,6 @@ const Navigation = () => {
                           )}
                         </AnimatePresence>
                       </>
-                    ) : item.href.startsWith("/") ? (
-                      <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.05 * index }}
-                        whileHover={{ x: 10 }}
-                      >
-                        <Link
-                          to={item.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
                     ) : (item as any).isExternal ? (
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -340,16 +297,20 @@ const Navigation = () => {
                         </a>
                       </motion.div>
                     ) : (
-                      <motion.button
-                        onClick={() => scrollToSection(item.href)}
-                        className="text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
+                      <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.05 * index }}
                         whileHover={{ x: 10 }}
                       >
-                        {item.label}
-                      </motion.button>
+                        <Link
+                          to={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
                     )}
                   </div>
                 ))}
@@ -359,12 +320,10 @@ const Navigation = () => {
                   transition={{ delay: 0.3 }}
                   className="pt-4"
                 >
-                  <Button
-                    variant="hero"
-                    className="w-full"
-                    onClick={() => scrollToSection("#contact")}
-                  >
-                    Let's Talk
+                  <Button variant="hero" className="w-full" asChild>
+                    <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
+                      Start a Project
+                    </a>
                   </Button>
                 </motion.div>
               </div>
