@@ -1,39 +1,46 @@
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
+import LandingHero from "@/components/landing/LandingHero";
+import { SocialProofBar } from "@/components/SocialProofBar";
+import ServicesSection from "@/components/ServicesSection";
+import WhyUsSection from "@/components/landing/WhyUsSection";
 import RecentProjectsSection from "@/components/RecentProjectsSection";
 import OtherWorkSection from "@/components/OtherWorkSection";
-import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ProcessPreview from "@/components/landing/ProcessPreview";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
-const personSchema = {
+const orgSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Usama Jamil",
-  "url": "https://usamajamil.com",
+  "@type": "Organization",
+  "name": "theCreativeGuy",
+  "url": "https://usamam.lovable.app",
   "sameAs": ["https://www.linkedin.com/in/usamajm/"],
-  "jobTitle": "Creative Strategist & Marketing Expert",
-  "description": "Bridging creative vision and technical execution. Helping founders leverage AI, systems, and smart execution to grow their brands.",
+  "description": "We build brands that convert. Creative strategy, AI-powered marketing, and high-impact design for ambitious founders.",
 };
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Usama Jamil | Creative Strategist & Marketing Expert"
-        description="Bridging creative vision and technical execution. I help ambitious founders and professionals leverage AI, systems, and smart execution to grow their brands."
+        title="theCreativeGuy | Creative Studio for Brands That Convert"
+        description="We build brands that convert. Creative strategy, AI-powered marketing, and high-impact design for ambitious founders and businesses."
         canonical="/"
-        structuredData={personSchema}
+        structuredData={orgSchema}
       />
       <Navigation />
-      <HeroSection />
-      <RecentProjectsSection />
+      <LandingHero />
+      <SocialProofBar />
+      <ServicesSection />
+      <WhyUsSection />
+      <div id="work">
+        <RecentProjectsSection />
+      </div>
       <OtherWorkSection />
-      <AboutSection />
       <PortfolioSection />
+      <ProcessPreview />
       <TestimonialsSection />
       <CTASection />
       <Footer />

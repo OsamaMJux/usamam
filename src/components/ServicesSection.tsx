@@ -50,7 +50,7 @@ const ServicesSection = () => {
                 viewport={{ once: true }}
               />
               <span className="text-sm font-medium tracking-wider text-primary uppercase">
-                Services
+                What We Do
               </span>
               <motion.div
                 className="h-px w-12 bg-primary"
@@ -59,12 +59,12 @@ const ServicesSection = () => {
                 viewport={{ once: true }}
               />
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-              How I Can Help You
+            <h2 className="text-4xl md:text-5xl font-serif italic font-bold mb-4">
+              Services That <span className="text-gradient">Drive Growth</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From strategy to execution, I offer end-to-end marketing solutions
-              tailored to ambitious brands and professionals.
+              From strategy to execution, we offer end-to-end marketing solutions
+              tailored to ambitious brands and businesses.
             </p>
           </div>
         </RevealOnScroll>
@@ -79,7 +79,6 @@ const ServicesSection = () => {
                     className="group relative p-8 rounded-2xl bg-secondary/50 border border-border hover:border-primary/50 transition-all duration-500 overflow-hidden h-full"
                     whileHover={{ scale: 1.01 }}
                   >
-                    {/* Background Number */}
                     <motion.div
                       className="absolute -right-4 -top-4 text-[120px] font-serif font-bold text-foreground/3 pointer-events-none"
                       initial={{ opacity: 0, x: 50 }}
@@ -99,7 +98,7 @@ const ServicesSection = () => {
                         <service.icon size={28} />
                       </motion.div>
 
-                      <h3 className="text-2xl font-serif font-bold mb-3 flex items-center gap-2">
+                      <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
                         {service.title}
                         <motion.span
                           className="opacity-0 group-hover:opacity-100 transition-opacity text-primary"

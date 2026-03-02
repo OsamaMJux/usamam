@@ -38,7 +38,7 @@ const CTASection = () => {
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.1}>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-serif italic font-bold mb-6 leading-tight">
               Ready to Build
               <br />
               <span className="text-gradient">Something Great?</span>
@@ -47,9 +47,8 @@ const CTASection = () => {
 
           <RevealOnScroll delay={0.2}>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed">
-              Whether you need a strategic partner, a creative collaborator, or
-              just want to pick my brain—I'm here to help ambitious professionals
-              achieve their goals.
+              Whether you need a creative partner, a growth strategist, or
+              a full execution team — let's build something that converts.
             </p>
           </RevealOnScroll>
 
