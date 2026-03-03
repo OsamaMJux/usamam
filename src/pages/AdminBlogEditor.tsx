@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
@@ -16,6 +16,10 @@ import {
   CheckCircle,
   AlertCircle,
   X,
+  ImagePlus,
+  Upload,
+  Loader2,
+  Trash2,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
@@ -29,12 +33,28 @@ const generateSlug = (title: string) =>
 
 const countWords = (text: string) => text.split(/\s+/).filter(Boolean).length;
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+
+const uploadImage = async (file: File, folder: string = "posts") => {
+  const ext = file.name.split(".").pop();
+  const fileName = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const { error } = await supabase.storage.from("blog-images").upload(fileName, file, {
+    cacheControl: "3600",
+    upsert: false,
+  });
+  if (error) throw error;
+  return `${SUPABASE_URL}/storage/v1/object/public/blog-images/${fileName}`;
+};
+
 const AdminBlogEditor = () => {
   const { id } = useParams<{ id: string }>();
   const isNew = id === "new";
   const navigate = useNavigate();
   const { user, isAdmin, loading: authLoading } = useAuth();
   const { toast } = useToast();
+  const contentRef = useRef<HTMLTextAreaElement>(null);
+  const featuredInputRef = useRef<HTMLInputElement>(null);
+  const inlineInputRef = useRef<HTMLInputElement>(null);
 
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
@@ -50,6 +70,8 @@ const AdminBlogEditor = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [saving, setSaving] = useState(false);
   const [categories, setCategories] = useState<string[]>([]);
+  const [uploadingFeatured, setUploadingFeatured] = useState(false);
+  const [uploadingInline, setUploadingInline] = useState(false);
 
   useEffect(() => {
     if (!authLoading && (!user || !isAdmin)) navigate("/admin/login");
@@ -83,7 +105,6 @@ const AdminBlogEditor = () => {
     }
   }, [id, isNew]);
 
-  // Auto-generate slug from title
   useEffect(() => {
     if (isNew && title) setSlug(generateSlug(title));
   }, [title, isNew]);
@@ -91,7 +112,6 @@ const AdminBlogEditor = () => {
   const wordCount = useMemo(() => countWords(content), [content]);
   const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
-  // SEO checks
   const seoChecks = useMemo(() => {
     const kw = focusKeyword.toLowerCase();
     return [
@@ -110,6 +130,43 @@ const AdminBlogEditor = () => {
       setTags([...tags, tag]);
     }
     setTagsInput("");
+  };
+
+  const handleFeaturedImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingFeatured(true);
+    try {
+      const url = await uploadImage(file, "featured");
+      setFeaturedImage(url);
+      toast({ title: "Image uploaded", description: "Featured image set successfully." });
+    } catch (err: any) {
+      toast({ title: "Upload failed", description: err.message, variant: "destructive" });
+    }
+    setUploadingFeatured(false);
+    if (featuredInputRef.current) featuredInputRef.current.value = "";
+  };
+
+  const handleInlineImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingInline(true);
+    try {
+      const url = await uploadImage(file, "inline");
+      const textarea = contentRef.current;
+      if (textarea) {
+        const pos = textarea.selectionStart || content.length;
+        const markdown = `\n![${file.name}](${url})\n`;
+        setContent(content.slice(0, pos) + markdown + content.slice(pos));
+      } else {
+        setContent(content + `\n![${file.name}](${url})\n`);
+      }
+      toast({ title: "Image inserted", description: "Image added to content." });
+    } catch (err: any) {
+      toast({ title: "Upload failed", description: err.message, variant: "destructive" });
+    }
+    setUploadingInline(false);
+    if (inlineInputRef.current) inlineInputRef.current.value = "";
   };
 
   const save = async (asDraft = false) => {
@@ -155,6 +212,10 @@ const AdminBlogEditor = () => {
     <div className="min-h-screen bg-background">
       <SEOHead title={isNew ? "New Blog Post" : "Edit Blog Post"} noindex />
 
+      {/* Hidden file inputs */}
+      <input ref={featuredInputRef} type="file" accept="image/*" className="hidden" onChange={handleFeaturedImageUpload} />
+      <input ref={inlineInputRef} type="file" accept="image/*" className="hidden" onChange={handleInlineImageUpload} />
+
       {/* Top Bar */}
       <header className="bg-card border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-6 flex items-center justify-between h-14">
@@ -185,8 +246,11 @@ const AdminBlogEditor = () => {
                 animate={{ opacity: 1 }}
                 className="bg-card border border-border rounded-xl p-8"
               >
+                {featuredImage && (
+                  <img src={featuredImage} alt={title} className="w-full h-64 object-cover rounded-lg mb-6" />
+                )}
                 <h1 className="text-4xl font-serif italic mb-6">{title || "Untitled"}</h1>
-                <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:italic prose-a:text-primary">
+                <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:italic prose-a:text-primary prose-img:rounded-lg">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
                 </div>
               </motion.div>
@@ -215,9 +279,26 @@ const AdminBlogEditor = () => {
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <Label htmlFor="content">Content (Markdown)</Label>
-                    <span className="text-xs text-muted-foreground">{wordCount} words · {readingTime} min read</span>
+                    <div className="flex items-center gap-3">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => inlineInputRef.current?.click()}
+                        disabled={uploadingInline}
+                        className="text-xs"
+                      >
+                        {uploadingInline ? (
+                          <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                        ) : (
+                          <ImagePlus className="h-3 w-3 mr-1" />
+                        )}
+                        Insert Image
+                      </Button>
+                      <span className="text-xs text-muted-foreground">{wordCount} words · {readingTime} min read</span>
+                    </div>
                   </div>
                   <Textarea
+                    ref={contentRef}
                     id="content"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
@@ -250,6 +331,46 @@ const AdminBlogEditor = () => {
               </div>
             </div>
 
+            {/* Featured Image */}
+            <div className="bg-card border border-border rounded-xl p-5 space-y-3">
+              <h3 className="font-semibold text-sm">Featured Image</h3>
+              {featuredImage ? (
+                <div className="relative group">
+                  <img src={featuredImage} alt="Featured" className="w-full h-40 object-cover rounded-lg" />
+                  <button
+                    onClick={() => setFeaturedImage("")}
+                    className="absolute top-2 right-2 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => featuredInputRef.current?.click()}
+                  disabled={uploadingFeatured}
+                  className="w-full h-32 border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center gap-2 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+                >
+                  {uploadingFeatured ? (
+                    <Loader2 className="h-6 w-6 animate-spin" />
+                  ) : (
+                    <>
+                      <Upload className="h-6 w-6" />
+                      <span className="text-xs">Click to upload</span>
+                    </>
+                  )}
+                </button>
+              )}
+              <div>
+                <Label className="text-xs">Or paste URL</Label>
+                <Input
+                  value={featuredImage}
+                  onChange={(e) => setFeaturedImage(e.target.value)}
+                  placeholder="https://..."
+                  className="bg-secondary border-border text-sm"
+                />
+              </div>
+            </div>
+
             {/* SEO Fields */}
             <div className="bg-card border border-border rounded-xl p-5 space-y-4">
               <h3 className="font-semibold text-sm">SEO Settings</h3>
@@ -278,15 +399,6 @@ const AdminBlogEditor = () => {
                   onChange={(e) => setMetaDescription(e.target.value.slice(0, 160))}
                   placeholder="SEO description"
                   className="bg-secondary border-border text-sm min-h-[80px]"
-                />
-              </div>
-              <div>
-                <Label className="text-xs">Featured Image URL</Label>
-                <Input
-                  value={featuredImage}
-                  onChange={(e) => setFeaturedImage(e.target.value)}
-                  placeholder="https://..."
-                  className="bg-secondary border-border text-sm"
                 />
               </div>
             </div>
