@@ -73,17 +73,17 @@ const Blog = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Usama Jamil Blog",
-    "description": "Insights on marketing, design, AI, and brand strategy.",
-    "url": "https://usamajamil.com/blog",
-    "author": { "@type": "Person", "name": "Usama Jamil" },
+    "name": "theCreativeGuy Blog",
+    "description": "Insights on branding, design, marketing, and conversion optimization.",
+    "url": "https://usamam.lovable.app/blog",
+    "publisher": { "@type": "Organization", "name": "theCreativeGuy" },
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Blog - Marketing, Design & AI Insights"
-        description="Read the latest insights on marketing strategy, creative design, AI automation, and brand growth from Usama Jamil."
+        title="Blog - Branding, Design & Marketing Insights"
+        description="Read the latest insights on branding strategy, creative design, conversion optimization, and building memorable brands from theCreativeGuy."
         canonical="/blog"
         structuredData={structuredData}
       />
@@ -101,7 +101,7 @@ const Blog = () => {
               The <span className="text-primary">Blog</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Insights on marketing strategy, creative design, AI automation, and building memorable brands.
+              Insights on branding strategy, creative design, conversion optimization, and building memorable brands.
             </p>
           </motion.div>
 

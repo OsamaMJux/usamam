@@ -18,20 +18,20 @@ interface SEOHeadProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://usamajamil.com";
+const BASE_URL = "https://usamam.lovable.app";
 
 const SEOHead = ({
-  title = "Usama Jamil | Creative Strategist & Marketing Expert",
-  description = "Bridging creative vision and technical execution. I help ambitious founders and professionals leverage AI, systems, and smart execution to grow their brands.",
+  title = "theCreativeGuy | Creative Design & Branding Agency",
+  description = "We help ambitious brands stand out with conversion-driven design, strategic branding, and modern web experiences that drive real business results.",
   canonical,
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogImage = "/favicon.png",
   ogType = "website",
   twitterCard = "summary_large_image",
   article,
   structuredData,
   noindex = false,
 }: SEOHeadProps) => {
-  const fullTitle = title.includes("Usama") ? title : `${title} | Usama Jamil`;
+  const fullTitle = title.includes("theCreativeGuy") ? title : `${title} | theCreativeGuy`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
 
   return (
@@ -48,11 +48,10 @@ const SEOHead = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Usama Jamil" />
+      <meta property="og:site_name" content="theCreativeGuy" />
 
       {/* Twitter */}
       <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:site" content="@usamajm" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
