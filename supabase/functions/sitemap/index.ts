@@ -15,17 +15,16 @@ serve(async (req) => {
   const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY")!;
   const supabase = createClient(supabaseUrl, supabaseKey);
 
-  const baseUrl = "https://usamajamil.com";
+  const baseUrl = "https://usamam.lovable.app";
 
-  // Static pages
   const staticPages = [
     { url: "/", priority: "1.0", changefreq: "weekly" },
+    { url: "/about", priority: "0.7", changefreq: "monthly" },
     { url: "/blog", priority: "0.9", changefreq: "daily" },
     { url: "/products", priority: "0.8", changefreq: "weekly" },
     { url: "/process", priority: "0.7", changefreq: "monthly" },
   ];
 
-  // Dynamic blog pages
   const { data: blogs } = await supabase
     .from("blogs")
     .select("slug, updated_at")

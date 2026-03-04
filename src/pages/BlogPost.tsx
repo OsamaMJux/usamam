@@ -100,7 +100,7 @@ const BlogPost = () => {
     );
   }
 
-  const shareUrl = `https://usamajamil.com/blog/${blog.slug}`;
+  const shareUrl = `https://usamam.lovable.app/blog/${blog.slug}`;
   const articleStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -108,7 +108,7 @@ const BlogPost = () => {
     "description": blog.meta_description || "",
     "image": blog.featured_image || "",
     "author": { "@type": "Person", "name": blog.author },
-    "publisher": { "@type": "Person", "name": "Usama Jamil" },
+    "publisher": { "@type": "Organization", "name": "theCreativeGuy" },
     "datePublished": blog.created_at,
     "dateModified": blog.updated_at,
     "mainEntityOfPage": shareUrl,
@@ -141,12 +141,10 @@ const BlogPost = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            {/* Back link */}
             <Link to="/blog" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
             </Link>
 
-            {/* Category & Meta */}
             <Badge variant="outline" className="mb-4">{blog.category}</Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif italic mb-6 leading-tight">
@@ -171,7 +169,6 @@ const BlogPost = () => {
               </span>
             </div>
 
-            {/* Featured Image */}
             {blog.featured_image && (
               <div className="rounded-xl overflow-hidden mb-10">
                 <img
@@ -183,12 +180,10 @@ const BlogPost = () => {
               </div>
             )}
 
-            {/* Content */}
-            <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:italic prose-a:text-primary prose-code:bg-card prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-card prose-pre:border prose-pre:border-border">
+            <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:italic prose-a:text-primary prose-code:bg-card prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-card prose-pre:border prose-pre:border-border prose-img:rounded-lg">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{blog.content}</ReactMarkdown>
             </div>
 
-            {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-10 pt-6 border-t border-border">
                 {blog.tags.map((tag) => (
@@ -197,7 +192,6 @@ const BlogPost = () => {
               </div>
             )}
 
-            {/* Share */}
             <div className="flex items-center gap-4 mt-8 pt-6 border-t border-border">
               <span className="text-sm text-muted-foreground flex items-center gap-2">
                 <Share2 className="h-4 w-4" /> Share
@@ -220,7 +214,6 @@ const BlogPost = () => {
               </a>
             </div>
 
-            {/* Related Posts */}
             {related.length > 0 && (
               <section className="mt-16 pt-10 border-t border-border">
                 <h2 className="text-2xl font-serif italic mb-8">Related Articles</h2>
