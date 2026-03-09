@@ -19,12 +19,13 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://usamam.lovable.app";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 const SEOHead = ({
   title = "theCreativeGuy | Creative Design & Branding Agency",
   description = "We help ambitious brands stand out with conversion-driven design, strategic branding, and modern web experiences that drive real business results.",
   canonical,
-  ogImage = "/favicon.png",
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   twitterCard = "summary_large_image",
   article,
