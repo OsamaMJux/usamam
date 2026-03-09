@@ -49,14 +49,16 @@ const SEOHead = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={absoluteOgImage} />
+      <meta property="og:image:width" content="1920" />
+      <meta property="og:image:height" content="1080" />
       <meta property="og:site_name" content="theCreativeGuy" />
 
       {/* Twitter */}
       <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={absoluteOgImage} />
 
       {/* Article meta */}
       {article?.publishedTime && (
