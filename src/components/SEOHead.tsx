@@ -19,12 +19,13 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://usamam.lovable.app";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 const SEOHead = ({
   title = "theCreativeGuy | Creative Design & Branding Agency",
   description = "We help ambitious brands stand out with conversion-driven design, strategic branding, and modern web experiences that drive real business results.",
   canonical,
-  ogImage = "/favicon.png",
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   twitterCard = "summary_large_image",
   article,
@@ -33,6 +34,7 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const fullTitle = title.includes("theCreativeGuy") ? title : `${title} | theCreativeGuy`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
+  const absoluteOgImage = ogImage?.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
 
   return (
     <Helmet>
@@ -47,14 +49,16 @@ const SEOHead = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={absoluteOgImage} />
+      <meta property="og:image:width" content="1920" />
+      <meta property="og:image:height" content="1080" />
       <meta property="og:site_name" content="theCreativeGuy" />
 
       {/* Twitter */}
       <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={absoluteOgImage} />
 
       {/* Article meta */}
       {article?.publishedTime && (
