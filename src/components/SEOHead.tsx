@@ -34,6 +34,7 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const fullTitle = title.includes("theCreativeGuy") ? title : `${title} | theCreativeGuy`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
+  const absoluteOgImage = ogImage?.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
 
   return (
     <Helmet>
