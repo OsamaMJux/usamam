@@ -30,11 +30,10 @@ const videoProjects: VideoProject[] = [
     orientation: "portrait",
   },
   {
-    title: "Google Vids: AI-Powered Video Creator and Editor",
-    client: "Radiance Co.",
+    title: "2d Mobile App Promo Video ",
+    client: "Google Ads",
     category: "Ad / Performance",
-    description:
-      "Hook-first ad edit engineered for paid social — A/B variants, captions, and motion graphics.",
+    description: "Promotional ad for the app, highlighting its features",
     src: "/videos/edit-3.mp4",
     orientation: "landscape",
   },
