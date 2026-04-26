@@ -64,17 +64,17 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
         )}
-        <div className="flex items-start justify-between mb-8">
-          <div>
-            <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase mb-2 block">
+        <div className="flex items-start justify-between gap-4 mb-8">
+          <div className="min-w-0 flex-1">
+            <span className="text-xs sm:text-sm font-mono tracking-widest text-muted-foreground uppercase mb-2 block">
               {project.category}
             </span>
-            <h3 className="text-3xl md:text-4xl font-serif italic text-foreground">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-foreground">
               {project.title}
             </h3>
-            <p className="text-muted-foreground mt-2 max-w-xl">{project.description}</p>
+            <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-xl">{project.description}</p>
           </div>
-          <span className="text-6xl md:text-8xl font-serif italic text-muted-foreground/20 leading-none">
+          <span className="text-4xl sm:text-6xl md:text-8xl font-serif italic text-muted-foreground/20 leading-none shrink-0">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
