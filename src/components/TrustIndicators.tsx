@@ -148,7 +148,7 @@ interface LimitedSpotsProps {
   month?: string;
 }
 
-export const LimitedSpots = ({ spots = 2, month = "January" }: LimitedSpotsProps) => (
+export const LimitedSpots = ({ spots = 2, month = "Q4" }: LimitedSpotsProps) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
