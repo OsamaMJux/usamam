@@ -6,6 +6,7 @@ import WhyUsSection from "@/components/landing/WhyUsSection";
 import RecentProjectsSection from "@/components/RecentProjectsSection";
 import OtherWorkSection from "@/components/OtherWorkSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import VideoEditingSection from "@/components/VideoEditingSection";
 import ProcessPreview from "@/components/landing/ProcessPreview";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
@@ -40,6 +41,7 @@ const Index = () => {
       </div>
       <OtherWorkSection />
       <PortfolioSection />
+      <VideoEditingSection />
       <ProcessPreview />
       <TestimonialsSection />
       <CTASection />
