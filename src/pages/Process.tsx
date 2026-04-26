@@ -115,9 +115,9 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-serif italic font-bold tracking-tight mb-8 leading-[1.1]"
           >
-            A system for clarity.
+            Content that connects.
             <br />
-            <span className="text-muted-foreground">A framework for growth.</span>
+            <span className="text-muted-foreground">Design that converts.</span>
           </motion.h1>
 
           <motion.p
@@ -126,8 +126,9 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8"
           >
-            I help ambitious professionals move from messy ideas to market-ready
-            products with a battle-tested, three-step shift.
+            I help founders and creators turn scattered ideas into a consistent
+            content engine — strategy, design, and short-form video that
+            actually moves the needle.
           </motion.p>
 
           {/* Trust Indicators */}
