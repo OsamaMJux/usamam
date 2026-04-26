@@ -28,7 +28,7 @@ interface AvailabilityIndicatorProps {
 
 export const AvailabilityIndicator = ({ 
   isAvailable = true, 
-  message = "Available for Q1 2026" 
+  message = "Available for Q4 projects" 
 }: AvailabilityIndicatorProps) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.95 }}
