@@ -69,7 +69,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <AvailabilityIndicator message="Available for January 2026" />
+            <AvailabilityIndicator message="Available for Q4 projects" />
             <LinkedInFollowers count="12K+" />
           </motion.div>
 
