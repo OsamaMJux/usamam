@@ -10,44 +10,44 @@ import { SocialProofBar } from "@/components/SocialProofBar";
 const phases = [
   {
     id: "01",
-    title: "Discover & Define",
-    subtitle: "Strategic Positioning",
-    hook: "Figure out who you are. Say it clearly.",
+    title: "Research & Strategy",
+    subtitle: "Content That Has a Point of View",
+    hook: "Know your audience. Own your message.",
     description:
-      "Focus on digging deep into customer research and market gaps to find your 'unfair advantage.' We uncover what makes you different and translate that into a positioning that resonates.",
+      "We dig into your audience, niche, and competitors to uncover content gaps and hooks that actually land. The result is a clear content strategy and visual direction — not random posts hoping to go viral.",
     deliverables: [
-      "Strategic Roadmap",
-      "Competitor Audit",
-      "Brand Core",
-      "Sitemap",
+      "Audience & Niche Research",
+      "Content Pillars & Hooks",
+      "Brand Voice & Tone",
+      "Monthly Content Calendar",
     ],
   },
   {
     id: "02",
-    title: "Ideate & Design",
-    subtitle: "Identity that Connects",
-    hook: "Look like you belong. Sound like a leader.",
+    title: "Design & Create",
+    subtitle: "Scroll-Stopping Visuals",
+    hook: "Look premium. Feel intentional.",
     description:
-      "Translating strategy into high-fidelity UI and scalable design systems that build instant trust. Every pixel is intentional, every interaction is crafted.",
+      "From thumbnails and carousels to short-form video edits and ad creatives — every asset is designed to stop the scroll, hold attention, and reinforce your brand. Cohesive, on-brand, and built for the platform it lives on.",
     deliverables: [
-      "Moodboards",
-      "Design System",
-      "High-Fidelity UI",
-      "Interactive Prototypes",
+      "Branded Templates",
+      "Carousels & Thumbnails",
+      "Short-Form Video Edits",
+      "Ad Creatives & Motion Graphics",
     ],
   },
   {
     id: "03",
-    title: "Launch & Optimize",
-    subtitle: "Built to Convert",
-    hook: "Turn interest into action. Scale without tech debt.",
+    title: "Publish & Grow",
+    subtitle: "Built to Convert Attention",
+    hook: "Turn views into leads. Turn leads into clients.",
     description:
-      "Moving from pixels to code. High-performance development focused on speed, SEO, and conversion. Built right from day one.",
+      "We schedule, publish, and track what's working — then double down. Iterative feedback loops on hooks, formats, and CTAs so your content compounds month over month instead of disappearing into the feed.",
     deliverables: [
-      "Next.js/Webflow Dev",
-      "Performance QA",
-      "Technical SEO",
-      "Handoff",
+      "Scheduling & Publishing",
+      "Performance Reporting",
+      "Hook & Creative Testing",
+      "Monthly Optimization",
     ],
   },
 ];
@@ -55,21 +55,21 @@ const phases = [
 const benefits = [
   {
     icon: Zap,
-    title: "No Guesswork",
+    title: "Strategy First",
     description:
-      "Every decision is backed by research and strategy. We don't guess—we validate.",
+      "Every post, video, and design starts with a hook and a goal — no random content, no guesswork.",
   },
   {
     icon: User,
     title: "Direct Access",
     description:
-      "Work directly with me. No account managers, no telephone games. Just clear communication.",
+      "Work directly with me. No account managers, no telephone games. Just clear creative direction.",
   },
   {
     icon: Clock,
-    title: "Async-First Workflow",
+    title: "Consistent Output",
     description:
-      "Designed for busy professionals. Updates on your schedule, not mine.",
+      "Reliable monthly deliverables so your brand stays top-of-feed without you lifting a finger.",
   },
 ];
 
@@ -115,9 +115,9 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-serif italic font-bold tracking-tight mb-8 leading-[1.1]"
           >
-            A system for clarity.
+            Content that connects.
             <br />
-            <span className="text-muted-foreground">A framework for growth.</span>
+            <span className="text-muted-foreground">Design that converts.</span>
           </motion.h1>
 
           <motion.p
@@ -126,8 +126,9 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8"
           >
-            I help ambitious professionals move from messy ideas to market-ready
-            products with a battle-tested, three-step shift.
+            I help founders and creators turn scattered ideas into a consistent
+            content engine — strategy, design, and short-form video that
+            actually moves the needle.
           </motion.p>
 
           {/* Trust Indicators */}
