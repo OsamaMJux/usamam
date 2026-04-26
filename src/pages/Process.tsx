@@ -55,21 +55,21 @@ const phases = [
 const benefits = [
   {
     icon: Zap,
-    title: "No Guesswork",
+    title: "Strategy First",
     description:
-      "Every decision is backed by research and strategy. We don't guess—we validate.",
+      "Every post, video, and design starts with a hook and a goal — no random content, no guesswork.",
   },
   {
     icon: User,
     title: "Direct Access",
     description:
-      "Work directly with me. No account managers, no telephone games. Just clear communication.",
+      "Work directly with me. No account managers, no telephone games. Just clear creative direction.",
   },
   {
     icon: Clock,
-    title: "Async-First Workflow",
+    title: "Consistent Output",
     description:
-      "Designed for busy professionals. Updates on your schedule, not mine.",
+      "Reliable monthly deliverables so your brand stays top-of-feed without you lifting a finger.",
   },
 ];
 
