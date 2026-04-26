@@ -16,8 +16,7 @@ const videoProjects: VideoProject[] = [
     title: "2D Cinematic Ad Mobile App ",
     client: "Googles Ads",
     category: "Product / Commercial",
-    description:
-      "Cinematic launch film for the RazorPro — shot direction, edit, color, and sound design.",
+    description: "otion Graphics App Explainer Video |Ads · Graphic Advertisement ",
     src: "/videos/edit-1.mp4",
     orientation: "landscape",
   },
@@ -31,7 +30,7 @@ const videoProjects: VideoProject[] = [
     orientation: "portrait",
   },
   {
-    title: "Campaign Hero Film",
+    title: "Google Vids: AI-Powered Video Creator and Editor",
     client: "Radiance Co.",
     category: "Ad / Performance",
     description:
