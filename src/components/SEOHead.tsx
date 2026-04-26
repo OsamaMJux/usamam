@@ -18,7 +18,7 @@ interface SEOHeadProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://usamam.lovable.app";
+const BASE_URL = "https://thecreativeguy.vercel.app";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 const SEOHead = ({
@@ -50,8 +50,8 @@ const SEOHead = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={absoluteOgImage} />
-      <meta property="og:image:width" content="1920" />
-      <meta property="og:image:height" content="1080" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="theCreativeGuy" />
 
       {/* Twitter */}
