@@ -13,8 +13,8 @@ interface VideoProject {
 
 const videoProjects: VideoProject[] = [
   {
-    title: "Brand Story Reel",
-    client: "Kelvane Store",
+    title: "2D Cinematic Ad Mobile App ",
+    client: "Googles Ads",
     category: "Product / Commercial",
     description:
       "Cinematic launch film for the RazorPro — shot direction, edit, color, and sound design.",
@@ -22,11 +22,11 @@ const videoProjects: VideoProject[] = [
     orientation: "landscape",
   },
   {
-    title: "Founder Vlog Series",
-    client: "Aurum Jewels",
+    title: "Zack D Films Style 3D Shorts",
+    client: "Youtube",
     category: "Social / Short-Form",
     description:
-      "Vertical edit built for IG Reels & TikTok — punchy cuts, kinetic type, retention-first pacing.",
+      "3D animations, voiceovers, and scripts like Zack D Films are created using AI tools and editing techniques.",
     src: "/videos/edit-2.mp4",
     orientation: "portrait",
   },
