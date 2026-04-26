@@ -35,7 +35,7 @@ const LandingHero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
-            <span className="text-xs font-medium text-foreground">Now accepting Q1 2026 clients</span>
+            <span className="text-xs font-medium text-foreground">Now accepting projects for Q4</span>
           </motion.div>
 
           {/* Main Heading */}
