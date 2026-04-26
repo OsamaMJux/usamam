@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import RevealOnScroll from "@/components/interactive/RevealOnScroll";
 
 interface VideoProject {
@@ -7,8 +7,8 @@ interface VideoProject {
   client: string;
   category: string;
   description: string;
-  thumbnail: string;
-  preview: string; // short MP4 for hover preview
+  src: string;
+  orientation: "landscape" | "portrait";
 }
 
 const videoProjects: VideoProject[] = [
@@ -16,134 +16,165 @@ const videoProjects: VideoProject[] = [
     title: "Brand Story Reel",
     client: "Kelvane Store",
     category: "Product / Commercial",
-    description: "Cinematic launch film for the RazorPro — shot direction, edit, color, and sound design.",
-    thumbnail: "/projects/video-thumb-1.jpg",
-    preview: "/videos/video-preview-1.mp4",
+    description:
+      "Cinematic launch film for the RazorPro — shot direction, edit, color, and sound design.",
+    src: "/videos/edit-1.mp4",
+    orientation: "landscape",
   },
   {
     title: "Founder Vlog Series",
     client: "Aurum Jewels",
     category: "Social / Short-Form",
-    description: "Vertical edit series built for IG Reels & TikTok — punchy cuts, kinetic type, retention-first pacing.",
-    thumbnail: "/projects/video-thumb-2.jpg",
-    preview: "/videos/video-preview-2.mp4",
+    description:
+      "Vertical edit built for IG Reels & TikTok — punchy cuts, kinetic type, retention-first pacing.",
+    src: "/videos/edit-2.mp4",
+    orientation: "portrait",
   },
   {
     title: "Campaign Hero Film",
     client: "Radiance Co.",
     category: "Ad / Performance",
-    description: "Hook-first ad edit engineered for paid social — A/B variants, captions, and motion graphics included.",
-    thumbnail: "/projects/video-thumb-3.jpg",
-    preview: "/videos/video-preview-3.mp4",
+    description:
+      "Hook-first ad edit engineered for paid social — A/B variants, captions, and motion graphics.",
+    src: "/videos/edit-3.mp4",
+    orientation: "landscape",
   },
 ];
 
-const VideoCard = ({ project, index }: { project: VideoProject; index: number }) => {
+const CinematicVideo = ({ project, index }: { project: VideoProject; index: number }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
 
-  const handleEnter = () => {
-    setIsHovered(true);
-    videoRef.current?.play().catch(() => {});
-  };
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          videoRef.current?.play().catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
-  const handleLeave = () => {
-    setIsHovered(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
+  const isPortrait = project.orientation === "portrait";
 
   return (
-    <RevealOnScroll delay={index * 0.1}>
-      <div className="group">
-        <div
-          className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-muted/30 select-none cursor-pointer"
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          onContextMenu={(e) => e.preventDefault()}
-        >
-          {/* Thumbnail */}
-          <img
-            src={project.thumbnail}
-            alt={`${project.title} thumbnail`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none ${
-              isHovered ? "opacity-0" : "opacity-100"
-            }`}
-            loading="lazy"
-            draggable={false}
-          />
+    <div
+      ref={containerRef}
+      className="relative w-full h-screen overflow-hidden bg-black select-none"
+      onContextMenu={(e) => e.preventDefault()}
+    >
+      {/* Video */}
+      <video
+        ref={videoRef}
+        src={project.src}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className={`absolute inset-0 w-full h-full pointer-events-none ${
+          isPortrait ? "object-contain" : "object-cover"
+        }`}
+      />
 
-          {/* Hover preview video */}
-          <video
-            ref={videoRef}
-            src={project.preview}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
-          />
+      {/* Ambient blurred backdrop for portrait videos to fill the frame */}
+      {isPortrait && (
+        <video
+          src={project.src}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          autoPlay
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none -z-0 blur-3xl scale-110 opacity-40"
+        />
+      )}
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/0 to-background/0 pointer-events-none" />
+      {/* Cinematic letterbox + vignette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/30 pointer-events-none" />
 
-          {/* Play indicator */}
-          <div
-            className={`absolute top-4 right-4 h-11 w-11 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center transition-all duration-300 ${
-              isHovered ? "scale-90 opacity-0" : "scale-100 opacity-100"
-            }`}
+      {/* Top meta bar */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 px-6 md:px-12 pt-8 flex items-center justify-between text-white/80"
+        initial={{ opacity: 0, y: -20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase">
+          {String(index + 1).padStart(2, "0")} / {String(videoProjects.length).padStart(2, "0")}
+        </span>
+        <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase">
+          {project.category}
+        </span>
+      </motion.div>
+
+      {/* Bottom content */}
+      <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-12 md:pb-20">
+        <div className="max-w-3xl">
+          <motion.div
+            className="flex items-center gap-3 mb-4"
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Play className="h-4 w-4 text-foreground fill-foreground ml-0.5" />
-          </div>
-
-          {/* Category tag */}
-          <div className="absolute bottom-4 left-4">
-            <span className="text-[10px] font-mono tracking-widest text-foreground/90 uppercase bg-background/60 backdrop-blur-sm px-2.5 py-1 rounded-full border border-border/40">
-              {project.category}
-            </span>
-          </div>
-
-          {/* Index number */}
-          <span className="absolute top-4 left-4 text-xs font-mono text-foreground/70">
-            {String(index + 1).padStart(2, "0")} / {String(videoProjects.length).padStart(2, "0")}
-          </span>
-        </div>
-
-        {/* Meta */}
-        <div className="mt-5">
-          <div className="flex items-baseline justify-between gap-3 mb-2">
-            <h3 className="text-xl md:text-2xl font-serif italic text-foreground">
-              {project.title}
-            </h3>
-            <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">
+            <div className="h-px w-10 bg-primary" />
+            <span className="text-xs font-mono tracking-widest text-primary uppercase">
               {project.client}
             </span>
-          </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          </motion.div>
+
+          <motion.h3
+            className="text-4xl md:text-6xl lg:text-7xl font-serif italic text-white leading-[1.05] mb-5"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            {project.title}
+          </motion.h3>
+
+          <motion.p
+            className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.55 }}
+          >
             {project.description}
-          </p>
+          </motion.p>
         </div>
       </div>
-    </RevealOnScroll>
+
+      {/* Side label */}
+      <div className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 rotate-90 origin-center">
+        <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-white/40 whitespace-nowrap">
+          {isPortrait ? "Vertical · 9:16" : "Cinematic · 16:9"}
+        </span>
+      </div>
+    </div>
   );
 };
 
 const VideoEditingSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-background">
+      {/* Header */}
+      <div className="py-24 md:py-32 max-w-7xl mx-auto px-6">
         <RevealOnScroll>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase mb-4 block">
                 Motion & Edit
               </span>
               <h2 className="text-4xl md:text-6xl font-serif italic text-foreground">
-                Video Editing <span className="text-primary">Projects</span>
+                Video Editing <span className="text-primary">Reel</span>
               </h2>
             </div>
             <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
@@ -151,12 +182,13 @@ const VideoEditingSection = () => {
             </p>
           </div>
         </RevealOnScroll>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {videoProjects.map((project, i) => (
-            <VideoCard key={project.title} project={project} index={i} />
-          ))}
-        </div>
+      {/* Full-screen videos stacked */}
+      <div className="flex flex-col">
+        {videoProjects.map((project, i) => (
+          <CinematicVideo key={project.title} project={project} index={i} />
+        ))}
       </div>
     </section>
   );
