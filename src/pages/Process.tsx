@@ -376,7 +376,7 @@ export default function Process() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <LimitedSpots spots={2} month="January" />
+              <LimitedSpots spots={2} month="Q4" />
               <ResponseTimeGuarantee hours={24} />
             </motion.div>
 
