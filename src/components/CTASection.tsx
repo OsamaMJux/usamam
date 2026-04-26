@@ -55,7 +55,7 @@ const CTASection = () => {
           {/* Urgency & Trust Triggers */}
           <RevealOnScroll delay={0.25}>
             <div className="flex flex-wrap justify-center gap-4 mb-10">
-              <LimitedSpots spots={2} month="January" />
+              <LimitedSpots spots={2} month="Q4" />
               <ResponseTimeGuarantee hours={24} />
             </div>
           </RevealOnScroll>
@@ -88,8 +88,8 @@ const CTASection = () => {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "Usamamalikk@hotmail.com",
-                  href: "mailto:Usamamalikk@hotmail.com",
+                  value: "Usamajan20000@gmail.com",
+                  href: "mailto:Usamajan20000@gmail.com",
                 },
                 {
                   icon: MessageCircle,
