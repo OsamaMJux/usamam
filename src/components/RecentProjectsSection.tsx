@@ -64,74 +64,45 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
         )}
-        <div className="flex items-start justify-between mb-8">
-          <div>
-            <span className="text-sm font-mono tracking-widest text-muted-foreground uppercase mb-2 block">
+        <div className="flex items-start justify-between gap-4 mb-8">
+          <div className="min-w-0 flex-1">
+            <span className="text-xs sm:text-sm font-mono tracking-widest text-muted-foreground uppercase mb-2 block">
               {project.category}
             </span>
-            <h3 className="text-3xl md:text-4xl font-serif italic text-foreground">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-foreground">
               {project.title}
             </h3>
-            <p className="text-muted-foreground mt-2 max-w-xl">{project.description}</p>
+            <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-xl">{project.description}</p>
           </div>
-          <span className="text-6xl md:text-8xl font-serif italic text-muted-foreground/20 leading-none">
+          <span className="text-4xl sm:text-6xl md:text-8xl font-serif italic text-muted-foreground/20 leading-none shrink-0">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
 
-        {/* Bento Grid */}
+        {/* Bento Grid - mobile: hero + 2x2 / desktop: 4-col bento */}
         {hasImages ? (
-          <div className="grid grid-cols-4 grid-rows-2 gap-3 h-[500px] md:h-[600px]">
-            {/* Large left image */}
-            <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
-              <img
-                src={project.images[0]}
-                alt={`${project.title} - Main`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
-              <img
-                src={project.images[1]}
-                alt={`${project.title} - 2`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
-              <img
-                src={project.images[2]}
-                alt={`${project.title} - 3`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
-              <img
-                src={project.images[3]}
-                alt={`${project.title} - 4`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-            <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden group select-none" onContextMenu={(e) => e.preventDefault()}>
-              <img
-                src={project.images[4]}
-                alt={`${project.title} - 5`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[280px_140px_140px] sm:grid-rows-[360px_180px_180px] md:grid-rows-2 md:h-[600px] gap-3 md:[&>*:first-child]:col-span-2 md:[&>*:first-child]:row-span-2">
+            {project.images.slice(0, 5).map((src, i) => (
+              <div
+                key={i}
+                className={`rounded-2xl overflow-hidden group select-none ${
+                  i === 0 ? "col-span-2 row-span-1 md:col-span-2 md:row-span-2" : "col-span-1 row-span-1"
+                }`}
+                onContextMenu={(e) => e.preventDefault()}
+              >
+                <img
+                  src={src}
+                  alt={`${project.title} - ${i === 0 ? "Main" : i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                  loading="lazy"
+                  draggable={false}
+                />
+              </div>
+            ))}
           </div>
         ) : (
-          <div className="grid grid-cols-4 grid-rows-2 gap-3 h-[500px] md:h-[600px]">
-            <div className="col-span-2 row-span-2 rounded-2xl bg-muted/30 border border-border/50 flex items-center justify-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-[280px_140px_140px] md:grid-rows-2 md:h-[600px] gap-3">
+            <div className="col-span-2 row-span-1 md:row-span-2 rounded-2xl bg-muted/30 border border-border/50 flex items-center justify-center">
               <span className="text-muted-foreground font-mono text-sm">Images Coming Soon</span>
             </div>
             <div className="col-span-1 row-span-1 rounded-2xl bg-muted/20 border border-border/50" />
