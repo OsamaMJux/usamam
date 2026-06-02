@@ -1,4 +1,5 @@
 import RevealOnScroll from "@/components/interactive/RevealOnScroll";
+import HoverPreview from "@/components/interactive/HoverPreview";
 
 const works = [
   { src: "/projects/other-1.jpg", alt: "Marketing Campaign Creative" },
