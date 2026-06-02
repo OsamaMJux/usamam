@@ -6,7 +6,7 @@ const Footer = () => {
   const navItems = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
-    { label: "Blog", href: "/blog" },
+    { label: "Builder", href: "/builder" },
     { label: "Process", href: "/process" },
   ];
   const socialLinks = [
