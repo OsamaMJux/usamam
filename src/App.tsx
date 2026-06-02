@@ -14,14 +14,12 @@ import About from "./pages/About";
 import CaseStudy from "./pages/CaseStudy";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import AdminBlogEditor from "./pages/AdminBlogEditor";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import Planner from "./pages/Planner";
+import Builder from "./pages/Builder";
 
 const queryClient = new QueryClient();
 
@@ -45,11 +43,9 @@ const App = () => {
                 <Route path="/case-study/:slug" element={<CaseStudy />} />
                 <Route path="/process" element={<Process />} />
                 <Route path="/planner" element={<Planner />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/builder" element={<Builder />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-                <Route path="/admin/blog/:id" element={<ProtectedRoute><AdminBlogEditor /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
