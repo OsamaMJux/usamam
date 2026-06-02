@@ -34,13 +34,15 @@ const OtherWorkSection = () => {
                 className="rounded-2xl overflow-hidden group aspect-square bg-muted/20 select-none"
                 onContextMenu={(e) => e.preventDefault()}
               >
-                <img
-                  src={work.src}
-                  alt={work.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                  loading="lazy"
-                  draggable={false}
-                />
+                <HoverPreview src={work.src} alt={work.alt} type="image">
+                  <img
+                    src={work.src}
+                    alt={work.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </HoverPreview>
               </div>
             </RevealOnScroll>
           ))}
