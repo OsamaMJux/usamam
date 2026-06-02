@@ -211,6 +211,78 @@ export function renderPageHTML(page: Page, theme: Theme, booklet: Booklet): stri
           </div>
         </div>`;
 
+    case "usp": {
+      const c = page.content;
+      const points = c.points || [];
+      return wrap(`${cornerBrand()}
+        ${pill("Unique Value")}${h1(c.headline || "Why we're different.")}
+        ${p(c.summary || "", true)}
+        <div style="margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+          ${points.map((pt: any, i: number) => `<div style="padding:24px;border:1px solid ${primary}25;border-radius:16px;background:linear-gradient(135deg,${primary}10,transparent);position:relative;overflow:hidden;"><div style="position:absolute;top:-10px;right:-10px;font-family:'${headingFont}',serif;font-size:80px;font-weight:700;color:${primary};opacity:0.08;">0${i + 1}</div><div style="position:relative;"><div style="width:36px;height:36px;border-radius:10px;background:${accent};color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-weight:700;">★</div><div style="font-family:'${headingFont}',serif;font-size:22px;font-weight:600;margin-bottom:8px;">${escape(pt.title)}</div><div style="font-size:14px;line-height:1.55;opacity:0.78;">${escape(pt.description)}</div></div></div>`).join("")}
+        </div>
+        ${footer("05")}`);
+    }
+
+    case "branding-kit": {
+      const c = page.content;
+      const colors = c.colors || [];
+      const typo = c.typography || [];
+      const voice = c.voice || [];
+      return wrap(`${cornerBrand()}
+        ${pill("Branding Kit")}${h1("Brand system.")}
+        ${p(c.tagline || "", true)}
+        <div style="margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;">
+          <div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin-bottom:10px;">Color Palette</div>
+            <div style="display:grid;grid-template-columns:repeat(${Math.min(colors.length, 4)},1fr);gap:10px;">
+              ${colors.map((col: any) => `<div style="border-radius:12px;overflow:hidden;border:1px solid ${primary}20;"><div style="height:80px;background:${col.hex};"></div><div style="padding:10px;background:${primary}06;"><div style="font-size:12px;font-weight:600;">${escape(col.name)}</div><div style="font-size:10px;opacity:0.65;font-family:monospace;">${escape(col.hex)}</div><div style="font-size:10px;opacity:0.55;margin-top:4px;">${escape(col.role || "")}</div></div></div>`).join("")}
+            </div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin:20px 0 10px;">Typography</div>
+            <div style="display:grid;grid-template-columns:repeat(${Math.max(typo.length, 1)},1fr);gap:10px;">
+              ${typo.map((tp: any) => `<div style="padding:14px;border:1px solid ${primary}20;border-radius:12px;"><div style="font-family:'${tp.family}',serif;font-size:28px;line-height:1;margin-bottom:6px;">Aa</div><div style="font-size:11px;font-weight:600;">${escape(tp.name)} · ${escape(tp.family)}</div><div style="font-size:10px;opacity:0.6;margin-top:2px;">${escape(tp.usage)}</div></div>`).join("")}
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin-bottom:10px;">Logo Usage</div>
+            <div style="padding:20px;border:1px solid ${primary}20;border-radius:14px;background:${primary}05;margin-bottom:16px;">
+              <div style="height:80px;display:flex;align-items:center;justify-content:center;border:1px dashed ${primary}40;border-radius:8px;margin-bottom:10px;">${logoUrl ? `<img src="${logoUrl}" style="max-height:48px;max-width:80%;object-fit:contain;"/>` : `<span style="font-family:'${headingFont}',serif;font-size:24px;font-weight:700;color:${primary};">${escape(booklet.companyName)}</span>`}</div>
+              <div style="font-size:12px;line-height:1.5;opacity:0.75;">${escape(c.logoUsage || "")}</div>
+            </div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin-bottom:10px;">Voice & Tone</div>
+            ${voice.map((v: string) => `<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:13px;"><span style="color:${accent};font-weight:700;">›</span><span>${escape(v)}</span></div>`).join("")}
+          </div>
+        </div>
+        ${footer("07")}`);
+    }
+
+    case "social-kit": {
+      const c = page.content;
+      const platforms = c.platforms || [];
+      const pillars = c.contentPillars || [];
+      const tags = c.hashtags || [];
+      return wrap(`${cornerBrand()}
+        ${pill("Social Media Kit")}${h1("Social playbook.")}
+        ${p(c.tagline || "", true)}
+        <div style="margin-top:24px;display:grid;grid-template-columns:repeat(${Math.min(platforms.length, 4)},1fr);gap:12px;">
+          ${platforms.map((pl: any) => `<div style="padding:16px;border:1px solid ${primary}25;border-radius:14px;background:linear-gradient(180deg,${primary}10,transparent);"><div style="font-family:'${headingFont}',serif;font-size:18px;font-weight:600;margin-bottom:4px;">${escape(pl.name)}</div><div style="font-size:11px;color:${accent};margin-bottom:8px;font-family:monospace;">${escape(pl.handle)}</div><div style="font-size:11px;line-height:1.45;opacity:0.75;margin-bottom:8px;">${escape(pl.focus)}</div><div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 8px;background:${primary}20;border-radius:999px;display:inline-block;">${escape(pl.cadence)}</div></div>`).join("")}
+        </div>
+        <div style="margin-top:20px;display:grid;grid-template-columns:1.5fr 1fr;gap:20px;">
+          <div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin-bottom:10px;">Content Pillars</div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+              ${pillars.map((pi: any, i: number) => `<div style="padding:14px;border-left:3px solid ${accent};background:${primary}06;border-radius:0 10px 10px 0;"><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;margin-bottom:4px;">0${i + 1}</div><div style="font-family:'${headingFont}',serif;font-size:16px;font-weight:600;">${escape(pi.title)}</div><div style="font-size:12px;opacity:0.7;margin-top:4px;">${escape(pi.description)}</div></div>`).join("")}
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'${headingFont}',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;margin-bottom:10px;">Hashtag Set</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              ${tags.map((tag: string) => `<span style="padding:6px 12px;border-radius:999px;background:${accent}20;color:${accent};font-size:12px;font-weight:600;">${escape(tag.startsWith("#") ? tag : "#" + tag)}</span>`).join("")}
+            </div>
+          </div>
+        </div>
+        ${footer("08")}`);
+    }
+
     default:
       return wrap(`<div>${escape(page.title)}</div>`);
   }
