@@ -1,4 +1,4 @@
-import { Calendar, Grid3X3, Sparkles, Play, Zap } from "lucide-react";
+import { Calendar, Grid3X3, Sparkles, Play, Zap, Palette, Megaphone, BarChart3, Crown, MessageCircle } from "lucide-react";
 
 export interface ProductBundle {
   name: string;
