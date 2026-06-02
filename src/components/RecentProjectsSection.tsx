@@ -1,4 +1,5 @@
 import RevealOnScroll from "@/components/interactive/RevealOnScroll";
+import HoverPreview from "@/components/interactive/HoverPreview";
 
 interface ProjectShowcase {
   title: string;
