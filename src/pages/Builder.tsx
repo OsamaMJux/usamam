@@ -509,6 +509,43 @@ function PageContentEditor({ page, onChange, booklet, onBookletChange }: { page:
           <Field label="CTA"><Input value={c.cta} onChange={(e) => set("cta", e.target.value)} /></Field>
         </div>
       );
+    case "usp":
+      return (
+        <div className="space-y-3">
+          <Field label="Headline"><Input value={c.headline || ""} onChange={(e) => set("headline", e.target.value)} /></Field>
+          <Field label="Summary"><Textarea rows={3} value={c.summary || ""} onChange={(e) => set("summary", e.target.value)} /></Field>
+          <ListEditor label="Differentiators" items={c.points || []} onChange={(v) => set("points", v)} render={(it, on) => (
+            <div className="space-y-1.5"><Input value={it.title} onChange={(e) => on({ ...it, title: e.target.value })} placeholder="Title" /><Textarea rows={2} value={it.description} onChange={(e) => on({ ...it, description: e.target.value })} placeholder="Description" /></div>
+          )} create={() => ({ title: "New differentiator", description: "Why this matters" })} />
+        </div>
+      );
+    case "branding-kit":
+      return (
+        <div className="space-y-3">
+          <Field label="Tagline"><Input value={c.tagline || ""} onChange={(e) => set("tagline", e.target.value)} /></Field>
+          <Field label="Logo usage"><Textarea rows={3} value={c.logoUsage || ""} onChange={(e) => set("logoUsage", e.target.value)} /></Field>
+          <ListEditor label="Colors" items={c.colors || []} onChange={(v) => set("colors", v)} render={(it, on) => (
+            <div className="space-y-1.5"><Input value={it.name} onChange={(e) => on({ ...it, name: e.target.value })} placeholder="Name" /><div className="flex gap-1.5"><input type="color" value={it.hex} onChange={(e) => on({ ...it, hex: e.target.value })} className="w-10 h-8 rounded border border-border" /><Input value={it.hex} onChange={(e) => on({ ...it, hex: e.target.value })} placeholder="#000000" /></div><Input value={it.role || ""} onChange={(e) => on({ ...it, role: e.target.value })} placeholder="Role" /></div>
+          )} create={() => ({ name: "New", hex: "#000000", role: "Usage" })} />
+          <ListEditor label="Typography" items={c.typography || []} onChange={(v) => set("typography", v)} render={(it, on) => (
+            <div className="space-y-1.5"><Input value={it.name} onChange={(e) => on({ ...it, name: e.target.value })} placeholder="Display / Body" /><Input value={it.family} onChange={(e) => on({ ...it, family: e.target.value })} placeholder="Font family" /><Input value={it.usage} onChange={(e) => on({ ...it, usage: e.target.value })} placeholder="Usage" /></div>
+          )} create={() => ({ name: "New", family: "Inter", usage: "Usage" })} />
+          <ListEditor label="Voice & Tone" items={c.voice || []} onChange={(v) => set("voice", v)} render={(it, on) => <Input value={it} onChange={(e) => on(e.target.value)} />} create={() => "New voice rule"} />
+        </div>
+      );
+    case "social-kit":
+      return (
+        <div className="space-y-3">
+          <Field label="Tagline"><Input value={c.tagline || ""} onChange={(e) => set("tagline", e.target.value)} /></Field>
+          <ListEditor label="Platforms" items={c.platforms || []} onChange={(v) => set("platforms", v)} render={(it, on) => (
+            <div className="space-y-1.5"><Input value={it.name} onChange={(e) => on({ ...it, name: e.target.value })} placeholder="Instagram" /><Input value={it.handle} onChange={(e) => on({ ...it, handle: e.target.value })} placeholder="@handle" /><Input value={it.focus} onChange={(e) => on({ ...it, focus: e.target.value })} placeholder="Content focus" /><Input value={it.cadence} onChange={(e) => on({ ...it, cadence: e.target.value })} placeholder="Cadence" /></div>
+          )} create={() => ({ name: "Platform", handle: "@handle", focus: "Focus", cadence: "3x / week" })} />
+          <ListEditor label="Content Pillars" items={c.contentPillars || []} onChange={(v) => set("contentPillars", v)} render={(it, on) => (
+            <div className="space-y-1.5"><Input value={it.title} onChange={(e) => on({ ...it, title: e.target.value })} placeholder="Pillar" /><Textarea rows={2} value={it.description} onChange={(e) => on({ ...it, description: e.target.value })} /></div>
+          )} create={() => ({ title: "New pillar", description: "Description" })} />
+          <ListEditor label="Hashtags" items={c.hashtags || []} onChange={(v) => set("hashtags", v)} render={(it, on) => <Input value={it} onChange={(e) => on(e.target.value)} />} create={() => "#brand"} />
+        </div>
+      );
     default:
       return null;
   }
