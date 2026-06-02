@@ -20,7 +20,7 @@ const navItems = [
   },
   { label: "Blog", href: "/blog" },
   { label: "Process", href: "/process" },
-  { label: "Planner", href: "https://flowfame.vercel.app/", isExternal: true },
+  { label: "Planner", href: "/planner" },
 ];
 
 const Navigation = () => {

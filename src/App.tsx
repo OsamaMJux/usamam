@@ -21,6 +21,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminBlogEditor from "./pages/AdminBlogEditor";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import Planner from "./pages/Planner";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => {
                 <Route path="/products/:slug" element={<ProductDetail />} />
                 <Route path="/case-study/:slug" element={<CaseStudy />} />
                 <Route path="/process" element={<Process />} />
+                <Route path="/planner" element={<Planner />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
