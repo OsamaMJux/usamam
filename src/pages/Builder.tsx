@@ -442,13 +442,13 @@ function PageContentEditor({ page, onChange, booklet, onBookletChange }: { page:
         <div className="space-y-1.5"><Input value={it.title} onChange={(e) => on({ ...it, title: e.target.value })} /><Textarea rows={2} value={it.description} onChange={(e) => on({ ...it, description: e.target.value })} /></div>
       )} create={() => ({ title: "Step", description: "Description" })} />;
     case "portfolio":
-      return <ListEditor label="Projects" items={c.items || []} onChange={(v) => set("items", v)} render={(it, on) => (
+      return <ListEditor<{ title: string; description: string; image?: string }> label="Projects" items={c.items || []} onChange={(v) => set("items", v)} render={(it, on) => (
         <div className="space-y-1.5"><Input value={it.title} onChange={(e) => on({ ...it, title: e.target.value })} placeholder="Title" /><Input value={it.description} onChange={(e) => on({ ...it, description: e.target.value })} placeholder="Description" /><Input value={it.image || ""} onChange={(e) => on({ ...it, image: e.target.value })} placeholder="Image URL" /></div>
-      )} create={() => ({ title: "New Project", description: "Brief description" })} />;
+      )} create={() => ({ title: "New Project", description: "Brief description", image: "" })} />;
     case "team":
-      return <ListEditor label="Team Members" items={c.members || []} onChange={(v) => set("members", v)} render={(it, on) => (
+      return <ListEditor<{ name: string; role: string; bio: string; photo?: string }> label="Team Members" items={c.members || []} onChange={(v) => set("members", v)} render={(it, on) => (
         <div className="space-y-1.5"><Input value={it.name} onChange={(e) => on({ ...it, name: e.target.value })} placeholder="Name" /><Input value={it.role} onChange={(e) => on({ ...it, role: e.target.value })} placeholder="Role" /><Input value={it.bio} onChange={(e) => on({ ...it, bio: e.target.value })} placeholder="Bio" /><Input value={it.photo || ""} onChange={(e) => on({ ...it, photo: e.target.value })} placeholder="Photo URL" /></div>
-      )} create={() => ({ name: "New Member", role: "Role", bio: "" })} />;
+      )} create={() => ({ name: "New Member", role: "Role", bio: "", photo: "" })} />;
     case "testimonials":
       return <ListEditor label="Testimonials" items={c.items || []} onChange={(v) => set("items", v)} render={(it, on) => (
         <div className="space-y-1.5"><Textarea rows={3} value={it.quote} onChange={(e) => on({ ...it, quote: e.target.value })} /><Input value={it.author} onChange={(e) => on({ ...it, author: e.target.value })} placeholder="Author" /><Input value={it.role || ""} onChange={(e) => on({ ...it, role: e.target.value })} placeholder="Role" /></div>
