@@ -21,6 +21,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminBlogEditor from "./pages/AdminBlogEditor";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import Planner from "./pages/Planner";
 
 const queryClient = new QueryClient();
 
