@@ -42,6 +42,16 @@ export function buildDefaultPages(data: Partial<Booklet>): Page[] {
     { id: uid(), type: "welcome", title: "Welcome", content: { message: `Welcome to ${c}. We're thrilled to partner with you on a journey of creativity, strategy, and measurable impact.` } },
     { id: uid(), type: "about", title: "About Us", content: { overview: `${c} is a forward-thinking team dedicated to delivering exceptional work.`, history: "Founded with a passion for craft and outcomes.", values: ["Integrity", "Excellence", "Innovation", "Partnership"] } },
     { id: uid(), type: "mission", title: "Mission & Vision", content: { mission: "Empower brands to achieve their highest potential through strategic creativity.", vision: "To become the most trusted creative partner for ambitious companies worldwide." } },
+    { id: uid(), type: "usp", title: "USP", content: {
+      headline: "Why we're different.",
+      summary: "We don't just deliver assets — we deliver outcomes. Strategy, design, and execution under one roof.",
+      points: [
+        { title: "Strategy-First", description: "Every decision rooted in research and goals — not guesswork." },
+        { title: "Senior Talent Only", description: "No juniors hidden behind logos. The people you meet do the work." },
+        { title: "Speed Without Sacrifice", description: "Sprint-based delivery with editorial-grade craft." },
+        { title: "ROI-Obsessed", description: "We measure success by what your business moves, not what we ship." },
+      ],
+    } },
     { id: uid(), type: "services", title: "Services", content: { items: [
       { title: "Branding", description: "Identity systems that resonate." },
       { title: "Web Development", description: "Performant, beautiful websites." },
@@ -50,6 +60,38 @@ export function buildDefaultPages(data: Partial<Booklet>): Page[] {
       { title: "Content Creation", description: "Stories that connect." },
       { title: "Advertising", description: "Campaigns that deliver ROI." },
     ] } },
+    { id: uid(), type: "branding-kit", title: "Branding Kit", content: {
+      tagline: "Our visual system at a glance.",
+      logoUsage: "Maintain clear space equal to the cap height of the wordmark. Never recolor, distort, or place on low-contrast backgrounds.",
+      colors: [
+        { name: "Primary", hex: "#111827", role: "Headlines, primary actions" },
+        { name: "Accent", hex: "#f59e0b", role: "Highlights, links" },
+        { name: "Surface", hex: "#fafafa", role: "Backgrounds" },
+        { name: "Ink", hex: "#0f172a", role: "Body text" },
+      ],
+      typography: [
+        { name: "Display", family: "Instrument Serif", usage: "Headlines · Editorial" },
+        { name: "Body", family: "Inter", usage: "Paragraphs · UI · Captions" },
+      ],
+      voice: ["Confident, never arrogant.", "Clear, never clever.", "Warm, never casual."],
+    } },
+    { id: uid(), type: "social-kit", title: "Social Media Kit", content: {
+      tagline: "How we'll show up across platforms.",
+      platforms: [
+        { name: "Instagram", handle: "@yourbrand", focus: "Reels, carousels, brand storytelling", cadence: "5x / week" },
+        { name: "LinkedIn", handle: "/company/yourbrand", focus: "Thought leadership, case studies", cadence: "3x / week" },
+        { name: "TikTok", handle: "@yourbrand", focus: "Short-form video, trends, BTS", cadence: "4x / week" },
+        { name: "YouTube", handle: "@yourbrand", focus: "Long-form, tutorials, interviews", cadence: "1x / week" },
+      ],
+      contentPillars: [
+        { title: "Educate", description: "Tips, how-tos, frameworks." },
+        { title: "Inspire", description: "Showcase work and client wins." },
+        { title: "Engage", description: "Polls, questions, community." },
+        { title: "Convert", description: "Offers, CTAs, lead magnets." },
+      ],
+      hashtags: ["#brand", "#design", "#growth", "#marketing", "#creative"],
+    } },
+
     { id: uid(), type: "process", title: "Process", content: { steps: [
       { title: "Discover", description: "Understand your goals, audience, and market." },
       { title: "Define", description: "Shape strategy, scope, and success metrics." },

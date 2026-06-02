@@ -3,7 +3,10 @@ export type PageType =
   | "welcome"
   | "about"
   | "mission"
+  | "usp"
   | "services"
+  | "branding-kit"
+  | "social-kit"
   | "process"
   | "portfolio"
   | "team"
@@ -58,7 +61,10 @@ export const PAGE_LABELS: Record<PageType, string> = {
   welcome: "Welcome",
   about: "About Us",
   mission: "Mission & Vision",
+  usp: "USP",
   services: "Services",
+  "branding-kit": "Branding Kit",
+  "social-kit": "Social Media Kit",
   process: "Process",
   portfolio: "Portfolio",
   team: "Team",
