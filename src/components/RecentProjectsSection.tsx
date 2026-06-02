@@ -1,4 +1,5 @@
 import RevealOnScroll from "@/components/interactive/RevealOnScroll";
+import HoverPreview from "@/components/interactive/HoverPreview";
 
 interface ProjectShowcase {
   title: string;
@@ -90,13 +91,15 @@ const ProjectCard = ({ project, index }: { project: ProjectShowcase; index: numb
                 }`}
                 onContextMenu={(e) => e.preventDefault()}
               >
-                <img
-                  src={src}
-                  alt={`${project.title} - ${i === 0 ? "Main" : i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
-                  loading="lazy"
-                  draggable={false}
-                />
+                <HoverPreview src={src} alt={`${project.title} - ${i === 0 ? "Main" : i + 1}`} type="image">
+                  <img
+                    src={src}
+                    alt={`${project.title} - ${i === 0 ? "Main" : i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </HoverPreview>
               </div>
             ))}
           </div>
