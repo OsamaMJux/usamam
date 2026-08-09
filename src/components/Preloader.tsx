@@ -31,7 +31,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
             {/* Logo animation */}
             <motion.img
               src="/favicon.png"
-              alt="theCreativeGuy"
+              alt="Taizai"
               className="w-20 h-20"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}

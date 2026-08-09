@@ -78,7 +78,7 @@ const Footer = () => {
           transition={{ delay: 0.5 }}
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} theCreativeGuy. All rights reserved.
+            © {new Date().getFullYear()} Taizai. All rights reserved.
           </p>
         </motion.div>
       </div>
