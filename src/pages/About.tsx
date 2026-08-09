@@ -17,7 +17,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="About Me | theCreativeGuy"
+        title="About Me | Taizai"
         description="I'm Usama Malik — a marketing strategist and creative technologist who believes in the power of systems over hustle."
         canonical="/about"
       />

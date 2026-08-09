@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Wordmark from "./Wordmark";
 
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,31 +29,13 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
           />
 
           <div className="flex flex-col items-center gap-6 relative z-10">
-            {/* Logo animation */}
-            <motion.img
-              src="/favicon.png"
-              alt="theCreativeGuy"
-              className="w-20 h-20"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-            />
-
-            {/* Brand text reveal */}
+            {/* Logotype animation */}
             <motion.div
-              className="overflow-hidden"
-              initial={{ width: 0 }}
-              animate={{ width: "auto" }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             >
-              <motion.span
-                className="text-xl font-bold text-foreground whitespace-nowrap block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 }}
-              >
-                the<span className="text-primary">Creative</span>Guy
-              </motion.span>
+              <Wordmark className="h-10 w-auto" />
             </motion.div>
 
             {/* Loading bar */}

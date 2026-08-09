@@ -1,6 +1,7 @@
 import { Linkedin, Mail, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Wordmark from "./Wordmark";
 
 const Footer = () => {
   const navItems = [
@@ -22,7 +23,7 @@ const Footer = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link to="/">
-              <img src="/logo-full.png" alt="theCreativeGuy" className="h-10 w-auto" />
+              <Wordmark className="h-7 w-auto" />
             </Link>
           </motion.div>
 
@@ -77,7 +78,7 @@ const Footer = () => {
           transition={{ delay: 0.5 }}
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} theCreativeGuy. All rights reserved.
+            © {new Date().getFullYear()} Taizai. All rights reserved.
           </p>
         </motion.div>
       </div>

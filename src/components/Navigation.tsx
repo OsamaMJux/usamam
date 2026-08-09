@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import MagneticButton from "./interactive/MagneticButton";
+import Wordmark from "./Wordmark";
 
 const navItems = [
   { label: "About", href: "/about" },
@@ -62,11 +63,7 @@ const Navigation = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link to="/" className="flex items-center">
-              <img
-                src="/logo-full.png"
-                alt="theCreativeGuy"
-                className="h-10 sm:h-12 w-auto"
-              />
+              <Wordmark className="h-7 sm:h-8 w-auto" />
             </Link>
           </motion.div>
 
