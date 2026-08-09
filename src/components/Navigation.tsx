@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import MagneticButton from "./interactive/MagneticButton";
+import Wordmark from "./Wordmark";
 
 const navItems = [
   { label: "About", href: "/about" },

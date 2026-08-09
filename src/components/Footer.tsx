@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link to="/">
-              <img src="/logo-full.png" alt="theCreativeGuy" className="h-10 w-auto" />
+              <Wordmark className="h-7 w-auto" />
             </Link>
           </motion.div>
 
