@@ -18,7 +18,7 @@ interface SEOHeadProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://thecreativeguy.vercel.app";
+const BASE_URL = "https://taizai.lovable.app";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 const SEOHead = ({
