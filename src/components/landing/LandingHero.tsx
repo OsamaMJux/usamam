@@ -8,7 +8,7 @@ const LandingHero = () => {
       className="relative z-10 min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroBg.url})` }}
     >
-      {/* Subtle bottom/side wash for text readability over the sparse illustration */}
+      {/* Subtle side wash for text readability over the sparse illustration */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -16,7 +16,7 @@ const LandingHero = () => {
             "linear-gradient(90deg, rgba(248,249,250,0.92) 0%, rgba(248,249,250,0.75) 45%, rgba(248,249,250,0.25) 70%, rgba(248,249,250,0) 100%)",
         }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cloud-white/80 via-transparent to-cloud-white/60" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/60" />
 
       <div className="container relative mx-auto px-6 pt-28 pb-16">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
@@ -26,7 +26,7 @@ const LandingHero = () => {
             transition={{ duration: 0.7 }}
             className="max-w-xl"
           >
-            <h1 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-8 text-deep-charcoal">
+            <h1 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-8 text-foreground">
               Brands built slowly.
               <br />
               <span className="text-gradient">Growth that stays.</span>
