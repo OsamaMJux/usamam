@@ -38,9 +38,10 @@ const LandingHero = () => {
             <img
               src={heroImage.url}
               alt="Minimal line drawing of a quiet coastline with a sailboat"
-              className="w-full rounded-lg"
+              className="w-full h-[320px] md:h-[520px] object-cover rounded-lg"
               loading="eager"
             />
+
           </motion.div>
         </div>
       </div>
