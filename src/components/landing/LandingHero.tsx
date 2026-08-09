@@ -55,7 +55,7 @@ const LandingHero = () => {
               <img
                 src={heroImage.url}
                 alt="Minimal line drawing of a quiet coastline with a sailboat"
-                className="absolute inset-3 object-cover"
+                className="absolute inset-3 w-full h-full object-cover"
                 style={{ mask: "url(#cloud-frame)" }}
                 loading="eager"
               />
