@@ -62,11 +62,7 @@ const Navigation = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link to="/" className="flex items-center">
-              <img
-                src="/logo-full.png"
-                alt="theCreativeGuy"
-                className="h-10 sm:h-12 w-auto"
-              />
+              <Wordmark className="h-7 sm:h-8 w-auto" />
             </Link>
           </motion.div>
 
