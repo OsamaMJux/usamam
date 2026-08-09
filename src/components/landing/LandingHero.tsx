@@ -35,13 +35,31 @@ const LandingHero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <img
-              src={heroImage.url}
-              alt="Minimal line drawing of a quiet coastline with a sailboat"
-              className="w-full h-[320px] md:h-[520px] object-cover rounded-lg"
-              loading="eager"
-            />
-
+            <div className="relative h-[320px] md:h-[520px] filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
+              <svg className="absolute w-0 h-0" aria-hidden="true">
+                <defs>
+                  <mask id="cloud-frame" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="1">
+                    <rect width="1" height="1" fill="black" />
+                    <ellipse cx="0.5" cy="0.72" rx="0.44" ry="0.26" fill="white" />
+                    <circle cx="0.34" cy="0.50" r="0.22" fill="white" />
+                    <circle cx="0.55" cy="0.38" r="0.26" fill="white" />
+                    <circle cx="0.78" cy="0.50" r="0.22" fill="white" />
+                    <circle cx="0.55" cy="0.58" r="0.18" fill="white" />
+                  </mask>
+                </defs>
+              </svg>
+              <div
+                className="absolute inset-0 bg-primary/15"
+                style={{ mask: "url(#cloud-frame)" }}
+              />
+              <img
+                src={heroImage.url}
+                alt="Minimal line drawing of a quiet coastline with a sailboat"
+                className="absolute inset-3 object-cover"
+                style={{ mask: "url(#cloud-frame)" }}
+                loading="eager"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
