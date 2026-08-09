@@ -1,12 +1,12 @@
+import logo from "@/assets/taizai-logo.png.asset.json";
+
 interface WordmarkProps {
   className?: string;
 }
 
-/** Taizai logotype */
+/** Taizai logo */
 const Wordmark = ({ className = "h-8 w-auto" }: WordmarkProps) => (
-  <span className={`inline-block font-sans font-bold text-foreground tracking-tight ${className}`}>
-    Taizai
-  </span>
+  <img src={logo.url} alt="Taizai" className={className} />
 );
 
 export default Wordmark;
