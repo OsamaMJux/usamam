@@ -16,7 +16,7 @@ import SEOHead from "@/components/SEOHead";
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Taizai",
+  "name": "theCreativeGuy",
   "url": "https://usamam.lovable.app",
   "sameAs": ["https://www.linkedin.com/in/usamajm/"],
   "description": "We build brands that convert. Creative strategy, AI-powered marketing, and high-impact design for ambitious founders.",
@@ -26,7 +26,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Taizai | AI & Automation Marketing"
+        title="theCreativeGuy | Creative Studio for Brands That Convert"
         description="We build brands that convert. Creative strategy, AI-powered marketing, and high-impact design for ambitious founders and businesses."
         canonical="/"
         structuredData={orgSchema}

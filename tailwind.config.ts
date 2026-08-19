@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Quantico', 'Inter', 'system-ui', 'sans-serif'],
-        serif: ['Quantico', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Instrument Sans', 'system-ui', 'sans-serif'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
