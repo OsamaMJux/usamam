@@ -1,7 +1,7 @@
 import { Linkedin, Mail, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import darkLogo from "@/assets/logo-dark.png.asset.json";
+import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const Footer = () => {
   const navItems = [

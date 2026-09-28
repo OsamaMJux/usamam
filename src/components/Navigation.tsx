@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import MagneticButton from "./interactive/MagneticButton";
 import lightLogo from "@/assets/logo-light.png.asset.json";
-import darkLogo from "@/assets/logo-dark.png.asset.json";
+import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const navItems = [
   { label: "About", href: "/about" },
