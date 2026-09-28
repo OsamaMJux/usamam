@@ -1,6 +1,7 @@
 import { Linkedin, Mail, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import darkLogo from "@/assets/logo-dark.png.asset.json";
 
 const Footer = () => {
   const navItems = [
@@ -22,7 +23,7 @@ const Footer = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link to="/">
-              <img src="/logo-full.png" alt="theCreativeGuy" className="h-10 w-auto" />
+              <img src={darkLogo.url} alt="The Creative Guy Studio" className="h-12 w-auto max-w-[220px] object-contain" />
             </Link>
           </motion.div>
 

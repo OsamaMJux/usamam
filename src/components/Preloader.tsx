@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import darkLogo from "@/assets/logo-dark.png.asset.json";
+import lightLogo from "@/assets/logo-light.png.asset.json";
 
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -30,30 +32,21 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
           <div className="flex flex-col items-center gap-6 relative z-10">
             {/* Logo animation */}
             <motion.img
-              src="/favicon.png"
-              alt="theCreativeGuy"
-              className="w-20 h-20"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
+              src={darkLogo.url}
+              alt="The Creative Guy Studio"
+              className="site-logo-dark w-64 max-w-[80vw] h-auto"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
             />
-
-            {/* Brand text reveal */}
-            <motion.div
-              className="overflow-hidden"
-              initial={{ width: 0 }}
-              animate={{ width: "auto" }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            >
-              <motion.span
-                className="text-xl font-bold text-foreground whitespace-nowrap block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 }}
-              >
-                the<span className="text-primary">Creative</span>Guy
-              </motion.span>
-            </motion.div>
+            <motion.img
+              src={lightLogo.url}
+              alt="The Creative Guy Studio"
+              className="site-logo-light w-64 max-w-[80vw] h-auto"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+            />
 
             {/* Loading bar */}
             <motion.div className="w-32 h-0.5 bg-secondary rounded-full overflow-hidden">

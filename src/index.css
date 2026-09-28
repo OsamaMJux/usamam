@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.site-logo-light { display: none; }
+html.light .site-logo-dark { display: none; }
+html.light .site-logo-light { display: block; }
+
 @layer base {
   :root {
     /* Virgin Airlines + Campbell's inspired palette */
