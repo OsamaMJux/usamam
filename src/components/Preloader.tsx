@@ -74,7 +74,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
                   />
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       )}
