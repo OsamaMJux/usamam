@@ -45,7 +45,7 @@ const wins = [
   {
     icon: PenLine,
     title: "Capture in seconds",
-    copy: "Open Leaf, type, done. No pages to number, no dividers to flip, no friction between the thought and the note.",
+    copy: "Open Leafist, type, done. No pages to number, no dividers to flip, no friction between the thought and the note.",
   },
   {
     icon: Search,
