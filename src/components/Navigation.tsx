@@ -145,11 +145,11 @@ const Navigation = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={linkClass(item.featured)}
+                      className={linkClass(item)}
                     >
                       {item.label}
                       <motion.span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                        className="absolute -bottom-1 left-0 h-0.5 bg-foreground"
                         initial={{ width: 0 }}
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.3 }}
@@ -165,11 +165,11 @@ const Navigation = () => {
                   >
                     <Link
                       to={item.href}
-                      className={linkClass(item.featured)}
+                      className={linkClass(item)}
                     >
                       {item.label}
                       <motion.span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                        className="absolute -bottom-1 left-0 h-0.5 bg-foreground"
                         initial={{ width: 0 }}
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.3 }}
