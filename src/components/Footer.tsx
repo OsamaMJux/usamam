@@ -1,6 +1,7 @@
 import { Linkedin, Mail, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import creativeGuyLogo from "@/assets/creative-guy-logo.png.asset.json";
 
 const Footer = () => {
   const navItems = [
@@ -11,18 +12,18 @@ const Footer = () => {
   ];
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/usamajm/" },
-    { icon: Mail, href: "mailto:Usamamalikk@hotmail.com" },
+    { icon: Mail, href: "mailto:Usamajan20000@gmail.com" },
     { icon: Twitter, href: "#" },
   ];
 
   return (
-    <footer className="py-12 bg-charcoal-deep border-t border-border">
+      <footer className="py-12 bg-secondary border-t border-border">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }}>
             <Link to="/">
-              <img src="/logo-full.png" alt="theCreativeGuy" className="h-10 w-auto" />
+              <img src={creativeGuyLogo.url} alt="The Creative Guy Studio" className="w-52 h-auto" />
             </Link>
           </motion.div>
 
