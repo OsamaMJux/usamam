@@ -148,12 +148,7 @@ const Navigation = () => {
                       className={linkClass(item)}
                     >
                       {item.label}
-                      <motion.span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-foreground"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
-                      />
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-foreground transition-all duration-300 group-hover:w-full" />
                     </a>
                   </motion.div>
                 ) : (
