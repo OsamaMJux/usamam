@@ -5,7 +5,7 @@ import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const Footer = () => {
   const navItems = [
-    { label: "About", href: "/about" },
+    { label: "Leafist", href: "/about" },
     { label: "Products", href: "/products" },
     { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true },
     { label: "Process", href: "/process" },

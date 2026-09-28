@@ -8,7 +8,7 @@ import lightLogo from "@/assets/logo-light.png.asset.json";
 import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const navItems = [
-  { label: "About", href: "/about" },
+  { label: "Leafist", href: "/about" },
   { 
     label: "Products", 
     href: "/products",
