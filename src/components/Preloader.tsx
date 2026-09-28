@@ -26,9 +26,9 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: reducedMotion ? 0.1 : 0.6, ease: "easeInOut" }}
         >
-          <div className="relative z-10 flex w-full max-w-4xl flex-col items-center">
+          <div className="relative z-10 flex w-full max-w-md flex-col items-center">
             <motion.div
-              className="mb-8 h-px w-full origin-left bg-border"
+              className="mb-5 h-px w-full origin-left bg-border"
               initial={reducedMotion ? false : { scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -44,12 +44,12 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
               </motion.div>
             </div>
             <motion.div
-              className="mt-8 h-px w-full origin-right bg-border"
+              className="mt-5 h-px w-full origin-right bg-border"
               initial={reducedMotion ? false : { scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             />
-            <div className="mt-8 flex w-full items-center gap-4" aria-label="Loading site" role="status">
+            <div className="mt-5 flex w-full items-center gap-4" aria-label="Loading site" role="status">
               <motion.span
                 className="text-xs font-medium uppercase text-muted-foreground"
                 initial={reducedMotion ? false : { opacity: 0, y: 8 }}
