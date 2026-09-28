@@ -8,7 +8,8 @@ import lightLogo from "@/assets/logo-light.png.asset.json";
 import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const navItems = [
-  { label: "Leafist", href: "/about" },
+  { label: "Leafist", href: "/about", featured: true },
+  { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true, featured: true },
   { 
     label: "Products", 
     href: "/products",
@@ -20,10 +21,14 @@ const navItems = [
       { label: "Digital Products", href: "/products#digital", description: "Templates & resources" },
     ]
   },
-  { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true },
   { label: "Process", href: "/process" },
   { label: "Planner", href: "/planner" },
 ];
+
+const linkClass = (featured?: boolean) =>
+  featured
+    ? "text-primary font-semibold hover:opacity-80 transition-colors relative group"
+    : "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
