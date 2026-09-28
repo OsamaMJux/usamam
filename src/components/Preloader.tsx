@@ -26,7 +26,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: reducedMotion ? 0.1 : 0.6, ease: "easeInOut" }}
         >
-          <div className="relative z-10 flex w-full max-w-xl flex-col items-center">
+          <div className="relative z-10 flex w-full max-w-4xl flex-col items-center">
             <motion.div
               className="mb-8 h-px w-full origin-left bg-border"
               initial={reducedMotion ? false : { scaleX: 0 }}
