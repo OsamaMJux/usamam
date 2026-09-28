@@ -27,8 +27,13 @@ const navItems = [
 
 const linkClass = (featured?: boolean) =>
   featured
-    ? "text-primary font-semibold hover:opacity-80 transition-colors relative group"
+    ? "text-sm font-semibold text-primary hover:opacity-80 transition-colors relative group"
     : "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group";
+
+const mobileLinkClass = (featured?: boolean) =>
+  featured
+    ? "block text-left text-lg font-semibold text-primary hover:opacity-80 transition-colors py-3 px-2 w-full"
+    : "block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -140,7 +145,7 @@ const Navigation = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                      className={linkClass(item.featured)}
                     >
                       {item.label}
                       <motion.span
@@ -160,7 +165,7 @@ const Navigation = () => {
                   >
                     <Link
                       to={item.href}
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                      className={linkClass(item.featured)}
                     >
                       {item.label}
                       <motion.span
@@ -295,7 +300,7 @@ const Navigation = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
+                          className={mobileLinkClass(item.featured)}
                         >
                           {item.label}
                         </a>
@@ -310,7 +315,7 @@ const Navigation = () => {
                         <Link
                           to={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full"
+                          className={mobileLinkClass(item.featured)}
                         >
                           {item.label}
                         </Link>
