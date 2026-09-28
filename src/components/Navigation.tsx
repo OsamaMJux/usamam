@@ -9,7 +9,7 @@ import darkLogo from "@/assets/logo-dark-new.png.asset.json";
 
 const navItems = [
   { label: "Leafist", href: "/about", featured: true },
-  { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true, featured: true },
+  { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true, featured: true, lighter: true },
   { 
     label: "Products", 
     href: "/products",
@@ -25,14 +25,14 @@ const navItems = [
   { label: "Planner", href: "/planner" },
 ];
 
-const linkClass = (featured?: boolean) =>
-  featured
-    ? "text-sm font-semibold text-primary hover:opacity-80 transition-colors relative group"
+const linkClass = (item: (typeof navItems)[number]) =>
+  item.featured
+    ? `text-sm font-semibold ${item.lighter ? "text-primary/75" : "text-primary"} hover:opacity-80 transition-colors relative group`
     : "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group";
 
-const mobileLinkClass = (featured?: boolean) =>
-  featured
-    ? "block text-left text-lg font-semibold text-primary hover:opacity-80 transition-colors py-3 px-2 w-full"
+const mobileLinkClass = (item: (typeof navItems)[number]) =>
+  item.featured
+    ? `block text-left text-lg font-semibold ${item.lighter ? "text-primary/75" : "text-primary"} hover:opacity-80 transition-colors py-3 px-2 w-full`
     : "block text-left text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 px-2 w-full";
 
 const Navigation = () => {
@@ -145,15 +145,10 @@ const Navigation = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={linkClass(item.featured)}
+                      className={linkClass(item)}
                     >
                       {item.label}
-                      <motion.span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
-                      />
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-foreground transition-all duration-300 group-hover:w-full" />
                     </a>
                   </motion.div>
                 ) : (
@@ -165,15 +160,10 @@ const Navigation = () => {
                   >
                     <Link
                       to={item.href}
-                      className={linkClass(item.featured)}
+                      className={linkClass(item)}
                     >
                       {item.label}
-                      <motion.span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-primary"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.3 }}
-                      />
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-foreground transition-all duration-300 group-hover:w-full" />
                     </Link>
                   </motion.div>
                 )}
@@ -300,7 +290,7 @@ const Navigation = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={mobileLinkClass(item.featured)}
+                          className={mobileLinkClass(item)}
                         >
                           {item.label}
                         </a>
@@ -315,7 +305,7 @@ const Navigation = () => {
                         <Link
                           to={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={mobileLinkClass(item.featured)}
+                          className={mobileLinkClass(item)}
                         >
                           {item.label}
                         </Link>
