@@ -300,7 +300,7 @@ const Navigation = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={mobileLinkClass(item.featured)}
+                          className={mobileLinkClass(item)}
                         >
                           {item.label}
                         </a>
@@ -315,7 +315,7 @@ const Navigation = () => {
                         <Link
                           to={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={mobileLinkClass(item.featured)}
+                          className={mobileLinkClass(item)}
                         >
                           {item.label}
                         </Link>
