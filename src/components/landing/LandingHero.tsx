@@ -87,7 +87,7 @@ const LandingHero = () => {
               <Button variant="hero" size="lg" className="group" asChild>
                 <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={20} />
-                  Start a Project
+                  Book a Call
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 5, 0] }}

@@ -18,7 +18,7 @@ const navItems = [
       { label: "Digital Products", href: "/products#digital", description: "Templates & resources" },
     ]
   },
-  { label: "Builder", href: "/builder" },
+  { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true },
   { label: "Process", href: "/process" },
   { label: "Planner", href: "/planner" },
 ];
@@ -186,7 +186,7 @@ const Navigation = () => {
                   asChild
                 >
                   <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
-                    Start a Project
+                    Book a Call
                   </a>
                 </Button>
               </motion.div>
@@ -322,7 +322,7 @@ const Navigation = () => {
                 >
                   <Button variant="hero" className="w-full" asChild>
                     <a href="https://wa.me/923214472719" target="_blank" rel="noopener noreferrer">
-                      Start a Project
+                      Book a Call
                     </a>
                   </Button>
                 </motion.div>

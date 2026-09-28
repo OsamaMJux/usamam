@@ -6,7 +6,7 @@ const Footer = () => {
   const navItems = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
-    { label: "Builder", href: "/builder" },
+    { label: "Content Calendar", href: "https://flowfame.lovable.app", isExternal: true },
     { label: "Process", href: "/process" },
   ];
   const socialLinks = [
@@ -37,12 +37,14 @@ const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link
-                  to={item.href}
+                <a
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors relative"
                 >
                   {item.label}
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
