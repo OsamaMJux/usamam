@@ -22,7 +22,7 @@ const BASE_URL = "https://thecreativeguy.vercel.app";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 const SEOHead = ({
-  title = "theCreativeGuy | Creative Design & Branding Agency",
+  title = "The Creative Guy Studio | Brand Design & Content Marketing",
   description = "We help ambitious brands stand out with conversion-driven design, strategic branding, and modern web experiences that drive real business results.",
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
@@ -32,7 +32,7 @@ const SEOHead = ({
   structuredData,
   noindex = false,
 }: SEOHeadProps) => {
-  const fullTitle = title.includes("theCreativeGuy") ? title : `${title} | theCreativeGuy`;
+  const fullTitle = title.includes("The Creative Guy Studio") ? title : `${title} | The Creative Guy Studio`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
   const absoluteOgImage = ogImage?.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`;
 
@@ -52,7 +52,7 @@ const SEOHead = ({
       <meta property="og:image" content={absoluteOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="theCreativeGuy" />
+      <meta property="og:site_name" content="The Creative Guy Studio" />
 
       {/* Twitter */}
       <meta name="twitter:card" content={twitterCard} />

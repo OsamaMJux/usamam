@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import MagneticButton from "./interactive/MagneticButton";
+import creativeGuyLogo from "@/assets/creative-guy-logo.png.asset.json";
 
 const navItems = [
   { label: "About", href: "/about" },
@@ -60,18 +61,18 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="shrink-0">
             <Link to="/" className="flex items-center">
               <img
-                src="/logo-full.png"
-                alt="theCreativeGuy"
-                className="h-10 sm:h-12 w-auto"
+                src={creativeGuyLogo.url}
+                alt="The Creative Guy Studio"
+                className="w-[138px] sm:w-[184px] h-auto"
               />
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
             {navItems.map((item, index) => (
               <div
                 key={item.label}
@@ -173,7 +174,7 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <MagneticButton strength={0.15}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -195,7 +196,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Toggle */}
           <motion.button
-            className="md:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -229,7 +230,7 @@ const Navigation = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden py-6 border-t border-border bg-background/95 backdrop-blur-lg"
+              className="lg:hidden py-6 border-t border-border bg-background/95 backdrop-blur-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
